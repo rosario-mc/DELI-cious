@@ -12,7 +12,7 @@ public class MainMenu implements DisplayScreens {
         boolean run = true;
         while (run) {
             String menu = """
-                    _ _____                                                              _____\s
+                      _____                                                              _____\s
                      ( ___ )                                                            ( ___ )
                       |   |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|   |\s
                       |   | ______ _____ _     _____      _____ _____ _____ _   _ _____  |   |\s
@@ -31,7 +31,6 @@ public class MainMenu implements DisplayScreens {
                       |   |            \\____/\\_| |_/\\_| \\_/___/  \\___/\\____/             |   |\s
                       |___|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|___|\s
                      (_____)                                                            (_____)
-                                            What Can We Do For You Today?
                     ==============================================================================
                                       Please select an option from the following:
                                                     1- New Order

@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class OrderScreen implements DisplayScreens {
     static Scanner input = new Scanner(System.in);
     SandwichCustomization sandwich = new SandwichCustomization();
+    Checkout checkout = new Checkout();
 
     @Override
     public void display() {
@@ -25,7 +26,7 @@ public class OrderScreen implements DisplayScreens {
                     ==============================================================================
                                      Please select an option from the following:
                     
-                                                   1- Add Sandwich
+                                                   1- Add Sando
                   
                                                    2- Add Drink
                     
@@ -41,7 +42,7 @@ public class OrderScreen implements DisplayScreens {
                 case "1", "ADD SANDWICH", "SANDWICH", "ADD SANDO", "SANDO" -> sandwich.display();
                 //case "2", "ADD DRINK", "DRINK" ->
                 //case "3", "ADD CHIPS", "CHIPS" ->
-                //case "4", "CHECKOUT" ->
+                case "4", "CHECKOUT" -> checkout.display();
                 case "0", "CANCEL ORDER", "CANCEL" -> run = false;
                 default -> System.out.println("Invalid option. Please try again.");
             }
