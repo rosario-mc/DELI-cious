@@ -4,23 +4,27 @@ import menuItems.Chip;
 import menuItems.Drink;
 import menuItems.Sandwich;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
     private String name;
-    private String orderDate = LocalDate.now().toString();
+    private String orderID;
+    private String orderDate = LocalDateTime.now().toString();
     private List<Sandwich> sandwiches = new ArrayList<>();
     private List<Drink> drinks = new ArrayList<>();
     private List<Chip> chips = new ArrayList<>();
+    private double totalPrice;
 
-    public Order(String name, String orderDate, List<Sandwich> sandwiches, List<Drink> drinks, List<Chip> chips) {
+    public Order(String name, String orderID, String orderDate, List<Sandwich> sandwiches, List<Drink> drinks, List<Chip> chips, double totalPrice) {
         this.name = name;
+        this.orderID = orderID;
         this.orderDate = orderDate;
         this.sandwiches = sandwiches;
         this.drinks = drinks;
         this.chips = chips;
+        this.totalPrice = totalPrice;
     }
 
     public String getName() {
@@ -29,6 +33,14 @@ public class Order {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getOrderID() {
+        return orderID;
+    }
+
+    public void setOrderID(String orderID) {
+        this.orderID = orderID;
     }
 
     public String getOrderDate() {
@@ -62,4 +74,18 @@ public class Order {
     public void setChips(List<Chip> chips) {
         this.chips = chips;
     }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public double calculateTotalPrice() {
+        return totalPrice;
+    }
+
+
 }
