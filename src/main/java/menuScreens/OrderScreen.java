@@ -4,38 +4,47 @@ import java.util.Scanner;
 
 public class OrderScreen implements DisplayScreens {
     static Scanner input = new Scanner(System.in);
+    SandwichCustomization sandwich = new SandwichCustomization();
 
     @Override
     public void display() {
         boolean run = true;
         while (run) {
             String menu = """
-                         _______         __                \s
-                        |   _   .----.--|  .-----.----.    \s
-                        |.  |   |   _|  _  |  -__|   _|    \s
-                        |.  |   |__| |_____|_____|__|      \s
-                        |:  1   |                          \s
-                        |::.. . |                          \s
-                        `-------'                 \s
-                    =============================================
-                    Please select an option from the following:
+                                     _____                                 _____\s
+                                    ( ___ )-------------------------------( ___ )
+                                     |   |                                 |   |\s
+                                     |   |  _________________ ___________  |   |\s
+                                     |   | |  _  | ___ \\  _  \\  ___| ___ \\ |   |\s
+                                     |   | | | | | |_/ / | | | |__ | |_/ / |   |\s
+                                     |   | | | | |    /| | | |  __||    /  |   |\s
+                                     |   | \\ \\_/ / |\\ \\| |/ /| |___| |\\ \\  |   |\s
+                                     |   |  \\___/\\_| \\_|___/ \\____/\\_| \\_| |   |\s
+                                     |___|                                 |___|\s
+                                    (_____)-------------------------------(_____)\s
+                    ==============================================================================
+                                     Please select an option from the following:
                     
-                    1- Add Sandwich
+                                                   1- Add Sandwich
+                  
+                                                   2- Add Drink
                     
-                    2- Add Drink
+                                                   3- Add Chips
                     
-                    3- Add Chips
+                                                   4- Checkout
                     
-                    4- Checkout
-                    
-                    0- Cancel Order
+                                                   0- Cancel Order
                     """;
             System.out.println(menu);
             String choice = input.nextLine().toUpperCase();
-            String choice = input.nextLine().toUpperCase();
             switch (choice) {
-                case "1", "NEW ORDER", "ORDER", "NEW" -> order.display();
-                case "2", "EXIT", "DONE", "BYE", "GOODBYE" -> {
+                case "1", "ADD SANDWICH", "SANDWICH", "ADD SANDO", "SANDO" -> sandwich.display();
+                //case "2", "ADD DRINK", "DRINK" ->
+                //case "3", "ADD CHIPS", "CHIPS" ->
+                //case "4", "CHECKOUT" ->
+                case "0", "CANCEL ORDER", "CANCEL" -> run = false;
+                default -> System.out.println("Invalid option. Please try again.");
+            }
         }
     }
 }
