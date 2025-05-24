@@ -1,9 +1,14 @@
 package menuScreens;
 
+import customerOrder.Order;
+import customerOrder.ReceiptGenerator;
+
 import java.util.Scanner;
 
 public class Checkout implements DisplayScreens {
     static Scanner input = new Scanner(System.in);
+    Order order = new Order();
+    ReceiptGenerator receipt = new ReceiptGenerator();
 
     @Override
     public void display() {
@@ -30,7 +35,10 @@ public class Checkout implements DisplayScreens {
             System.out.println(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
-                //case "1", "CONFIRM" ->
+                case "1", "CONFIRM" -> {
+                    receipt.printReceipt(order);
+                    receipt.saveReceiptToFile(receipt.generateReceipt(order));
+                }
                 case "2", "CANCEL" -> run = false;
                 default -> System.out.println("Invalid option. Please try again.");
             }

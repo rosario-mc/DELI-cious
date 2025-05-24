@@ -17,9 +17,9 @@ public class ReceiptGenerator {
         sb.append("ORDER ID: ").append(order.getOrderID()).append("\n");
         sb.append("ORDER DATE: ").append(order.getOrderDate()).append("\n");
 
-        appendItemList("Sandwiches", order.getSandwiches(), sb);
-        appendItemList("Drinks", order.getDrinks(), sb);
-        appendItemList("Chips", order.getChips(), sb);
+        appendItemList("SANDWICHES", order.getSandwiches(), sb);
+        appendItemList("DRINKS", order.getDrinks(), sb);
+        appendItemList("CHIPS", order.getChips(), sb);
 
         sb.append("TOTAL: ").append(order.getTotalPrice()).append("\n");
         return sb.toString();
@@ -41,7 +41,7 @@ public class ReceiptGenerator {
         try (PrintWriter writer = new PrintWriter(receiptFile)) {
             writer.println(receiptText);
         } catch (IOException e) {
-            System.out.println("An error occurred while saving receipt: " + e.getMessage());
+            System.out.println("AN ERROR OCCURRED WHILE SAVING RECEIPT: " + e.getMessage());
         }
     }
 

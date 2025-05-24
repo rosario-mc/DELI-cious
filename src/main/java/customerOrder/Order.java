@@ -27,6 +27,16 @@ public class Order {
         this.totalPrice = totalPrice;
     }
 
+    public Order() {
+        this.name = name;
+        this.orderID = orderID;
+        this.orderDate = orderDate;
+        this.sandwiches = sandwiches;
+        this.drinks = drinks;
+        this.chips = chips;
+        this.totalPrice = totalPrice;
+    }
+
     public String getName() {
         return name;
     }
@@ -76,7 +86,7 @@ public class Order {
     }
 
     public double getTotalPrice() {
-        return totalPrice;
+        return calculateTotalPrice();
     }
 
     public void setTotalPrice(double totalPrice) {
@@ -84,8 +94,11 @@ public class Order {
     }
 
     public double calculateTotalPrice() {
-        return totalPrice;
+        double total = 0.0;
+        for (Sandwich s : sandwiches) total += s.getPrice();
+        for (Drink d : drinks) total += d.getPrice();
+        for (Chip c : chips) total += c.getPrice();
+        this.totalPrice = total;
+        return total;
     }
-
-
 }
