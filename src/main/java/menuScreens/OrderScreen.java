@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class OrderScreen implements DisplayScreens {
     static Scanner input = new Scanner(System.in);
-    SandwichCustomization sandwich = new SandwichCustomization();
+   TypeOfSandwich sandoType = new TypeOfSandwich();
     Checkout checkout = new Checkout();
 
     @Override
@@ -41,7 +41,7 @@ public class OrderScreen implements DisplayScreens {
             System.out.println(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
-                case "1", "ADD SANDWICH", "SANDWICH", "ADD SANDO", "SANDO" -> sandwich.display();
+                case "1", "ADD SANDWICH", "SANDWICH", "ADD SANDO", "SANDO" -> sandoType.display();
                 //case "2", "ADD DRINK", "DRINK" ->
                 //case "3", "ADD CHIPS", "CHIPS" ->
                 case "4", "CHECKOUT" -> checkout.display();
