@@ -3,7 +3,7 @@ package menuItems;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Sandwich implements CustomizableItem{
+public class Sandwich implements CustomizableItem {
     private String breadType;
     private String sandoSize;
     private boolean toasted;
@@ -11,6 +11,14 @@ public class Sandwich implements CustomizableItem{
     private double price;
 
     public Sandwich(String breadType, String sandoSize, boolean toasted, List<Topping> toppings, double price) {
+        this.breadType = breadType;
+        this.sandoSize = sandoSize;
+        this.toasted = toasted;
+        this.toppings = toppings;
+        this.price = price;
+    }
+
+    public Sandwich() {
         this.breadType = breadType;
         this.sandoSize = sandoSize;
         this.toasted = toasted;
