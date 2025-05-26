@@ -1,5 +1,6 @@
 package menuScreens.customization;
 
+import sandwichComponents.PremiumTopping;
 import sandwichComponents.Sandwich;
 import menuScreens.DisplayScreens;
 
@@ -7,7 +8,11 @@ import java.util.Scanner;
 
 public class Cheese implements DisplayScreens {
     static Scanner input = new Scanner(System.in);
-    Sandwich cheese = new Sandwich();
+    private Sandwich sandwich;
+
+    public Cheese(Sandwich sandwich) {
+        this.sandwich = sandwich;
+    }
 
     @Override
     public void display() {
@@ -26,31 +31,42 @@ public class Cheese implements DisplayScreens {
                                 |___|                                         |___|\s
                                (_____)---------------------------------------(_____)\s
                     ==============================================================================
-                                   Please select a cheese option from the following:
-                    
+                                                  Cheese Options:
                                                    1- American
-                    
                                                    2- Provolone
-                    
                                                    3- Cheddar
-                    
                                                    4- Swiss
-                    
                                                    5- Add Extra
-                    
-                                                   0- Back
+                                                   0- Done / Back
+                                    Melt it, layer it, love it — choose your cheese!:
                     """;
             System.out.println(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
-                case "1", "AMERICAN" -> cheese.getToppings();
-                case "2", "PROVOLONE" -> cheese.getToppings();
-                case "3", "CHEDDAR" -> cheese.getToppings();
-                case "4", "SWISS" -> cheese.getToppings();
-                case "5", "ADD EXTRA", "EXTRA" -> cheese.getToppings();
+                case "1", "AMERICAN" -> addCheese("Steak");
+                case "2", "PROVOLONE" -> addCheese("Provolone");
+                case "3", "CHEDDAR" -> addCheese("Cheddar");
+                case "4", "SWISS" -> addCheese("Swiss");
+                case "5", "ADD EXTRA", "EXTRA" -> addCheese("Extra Cheese");
                 case "0", "BACK" -> run = false;
                 default -> System.out.println("Invalid option. Please try again.");
             }
         }
+    }
+
+    private void addCheese(String cheeseName) {
+        String size = sandwich.getSandoSize();
+        double price = getPriceBySize(size);
+        sandwich.addTopping(new PremiumTopping(cheeseName, size, true, price));
+        System.out.println(cheeseName + " Added To Your Sando (" + size + "\", $" + price + ").");
+    }
+
+    private double getPriceBySize(String size) {
+        return switch (size) {
+            case "4" -> 0.75;
+            case "8" -> 1.50;
+            case "12" -> 2.25;
+            default -> 0.0;
+        };
     }
 }

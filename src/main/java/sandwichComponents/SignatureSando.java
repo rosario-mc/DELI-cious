@@ -8,8 +8,15 @@ abstract class SignatureSando extends Sandwich{
     private boolean customizable;
     private double fixedPrice;
 
-    public SignatureSando(String breadType, String sandoSize, boolean toasted, List<Topping> toppings, double price, String name, String description, boolean customizable, double fixedPrice) {
-        super(breadType, sandoSize, toasted, toppings, price);
+    public SignatureSando(String breadType, String sandoSize, boolean toasted, List<Topping> toppings, List<String> sauces, String name, String description, boolean customizable, double fixedPrice) {
+        super(breadType, sandoSize, toasted, toppings, sauces);
+        this.name = name;
+        this.description = description;
+        this.customizable = customizable;
+        this.fixedPrice = fixedPrice;
+    }
+
+    public SignatureSando(String name, String description, boolean customizable, double fixedPrice) {
         this.name = name;
         this.description = description;
         this.customizable = customizable;

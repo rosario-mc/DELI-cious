@@ -1,5 +1,6 @@
 package menuScreens.customization;
 
+import sandwichComponents.NonPremiumTopping;
 import sandwichComponents.Sandwich;
 import menuScreens.DisplayScreens;
 
@@ -7,7 +8,11 @@ import java.util.Scanner;
 
 public class Veggies implements DisplayScreens {
     static Scanner input = new Scanner(System.in);
-    Sandwich veg = new Sandwich();
+    private Sandwich sandwich;
+
+    public Veggies(Sandwich sandwich) {
+        this.sandwich = sandwich;
+    }
 
     @Override
     public void display() {
@@ -26,46 +31,47 @@ public class Veggies implements DisplayScreens {
                                 |___|                                             |___|\s
                                (_____)-------------------------------------------(_____)\s
                     ==============================================================================
-                                   Please select your veggies options from the following:
-                    
+                                                   Veggie Options:
                                                    1- Lettuce
-                    
                                                    2- Peppers
-                    
                                                    3- Onions
-                    
                                                    4- Tomatoes
-                                                   
                                                    5- Jalapeños
-                    
                                                    6- Cucumbers
-                    
                                                    7- Pickles
-                    
                                                    8- Guacamole
-                                                   
                                                    9- Mushrooms
-                                                   
-                                                   10- Add Extra
-                    
+                                                   10- Add Extra Veggies
                                                    0- Back
+                                             Pick your fresh and crispy crew:
                     """;
             System.out.println(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
-                case "1", "LETTUCE" -> veg.getToppings();
-                case "2", "PEPPERS" -> veg.getToppings();
-                case "3", "ONIONS" -> veg.getToppings();
-                case "4", "TOMATOES" -> veg.getToppings();
-                case "5", "JALAPEÑOS" -> veg.getToppings();
-                case "6", "CUCUMBERS" -> veg.getToppings();
-                case "7", "PICKLES" -> veg.getToppings();
-                case "8", "GUACAMOLE" -> veg.getToppings();
-                case "9", "MUSHROOMS" -> veg.getToppings();
-                case "10", "ADD EXTRA", "EXTRA" -> veg.getToppings();
+                case "1", "LETTUCE" -> addVeggies("Lettuce");
+                case "2", "PEPPERS" -> addVeggies("Peppers");
+                case "3", "ONIONS" -> addVeggies("Onions");
+                case "4", "TOMATOES" -> addVeggies("Tomatoes");
+                case "5", "JALAPEÑOS" -> addVeggies("Jalapeños");
+                case "6", "CUCUMBERS" -> addVeggies("Cucumbers");
+                case "7", "PICKLES" -> addVeggies("Pickles");
+                case "8", "GUACAMOLE" -> addVeggies("Guacamole");
+                case "9", "MUSHROOMS" -> addVeggies("Mushrooms");
+                case "10", "ADD EXTRA", "EXTRA" -> addVeggies("Extra Veggies");
                 case "0", "BACK" -> run = false;
                 default -> System.out.println("Invalid option. Please try again.");
             }
         }
+    }
+
+    private void addVeggies(String vegName) {
+        String size = sandwich.getSandoSize();
+        double price = getPriceBySize(size);
+        sandwich.addTopping(new NonPremiumTopping(vegName, size, false, price));
+        System.out.println(vegName + " Added To Your Sando (" + size + "\", $" + price + ").");
+    }
+
+    private double getPriceBySize(String size) {
+        return 0.0;
     }
 }

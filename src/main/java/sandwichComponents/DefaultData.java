@@ -3,7 +3,7 @@ package sandwichComponents;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemOptions {
+public class DefaultData {
 
     List<Topping> premiumMeat4;
     List<Topping> premiumMeat8;
@@ -15,7 +15,7 @@ public class ItemOptions {
     List<Topping> nonPremSauce;
     List<Topping> nonPremSides;
 
-    public ItemOptions() {
+    public DefaultData() {
         List<String> meatNames = List.of("Steak", "Ham", "Salami", "Roast Beef", "Chicken", "Bacon");
         premiumMeat4 = createPremiumTopping(meatNames, "4", true, 1.00);
         premiumMeat8 = createPremiumTopping(meatNames, "8", true, 2.00);
@@ -53,8 +53,16 @@ public class ItemOptions {
     public List<Topping> createNonPremiumTopping(List<String> names, String size, boolean isPremium, double price) {
         List<Topping> nonPremTop = new ArrayList<>();
         for (String name : names) {
-            nonPremTop.add(new NonPremiuimTopping(name, size, isPremium, price));
+            nonPremTop.add(new NonPremiumTopping(name, size, isPremium, price));
         }
         return nonPremTop;
     }
+
+   /* public List<Sandwich> createSando(List<String> names, String breadType, String sandoSize, boolean toasted, List<Topping> toppings, double price) {
+        List<Sandwich> sando = new ArrayList<>();
+        for (String name : names) {
+            sando.add(new SignatureSando(name, breadType, sandoSize, toppings, price);
+        }
+        return sando;
+    */
 }

@@ -1,5 +1,6 @@
 package menuScreens.customization;
 
+import sandwichComponents.NonPremiumTopping;
 import sandwichComponents.Sandwich;
 import menuScreens.DisplayScreens;
 
@@ -7,7 +8,11 @@ import java.util.Scanner;
 
 public class Sauce implements DisplayScreens {
     static Scanner input = new Scanner(System.in);
-    Sandwich sauce = new Sandwich();
+    private Sandwich sandwich;
+
+    public Sauce(Sandwich sandwich) {
+        this.sandwich = sandwich;
+    }
 
     @Override
     public void display() {
@@ -26,37 +31,39 @@ public class Sauce implements DisplayScreens {
                                     |___|                                  |___|\s
                                    (_____)--------------------------------(_____)\s
                     ==============================================================================
-                                     Please select your sauces option from the following:
+                                     Let’s get saucy — pick your perfect drizzle:
                     
                                                    1- Mayo
-                    
                                                    2- Mustard
-                    
                                                    3- Ketchup
-                    
                                                    4- Ranch
-                                                   
                                                    5- Thousand Islands
-                                                   
                                                    6- Vinaigrette
-                                                   
                                                    7- Add Extra
-                    
                                                    0- Back
                     """;
             System.out.println(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
-                case "1", "MAYO" -> sauce.getToppings();
-                case "2", "MUSTARD" -> sauce.getToppings();
-                case "3", "KETCHUP" -> sauce.getToppings();
-                case "4", "RANCH" -> sauce.getToppings();
-                case "5", "THOUSAND ISLANDS" -> sauce.getToppings();
-                case "6", "VINAIGRETTE" -> sauce.getToppings();
-                case "7", "ADD EXTRA" -> sauce.getToppings();
+                case "1", "MAYO" -> addSauce("Mayo");
+                case "2", "MUSTARD" -> addSauce("Mustard");
+                case "3", "KETCHUP" -> addSauce("Ketchup");
+                case "4", "RANCH" -> addSauce("Ranch");
+                case "5", "THOUSAND ISLANDS" -> addSauce("Thousand Islands");
+                case "6", "VINAIGRETTE" -> addSauce("Vinaigrette");
+                case "7", "ADD EXTRA" -> addSauce("Extra Sauce");
                 case "0", "BACK" -> run = false;
                 default -> System.out.println("Invalid option. Please try again.");
             }
         }
+    }
+    private void addSauce(String sauceName) {
+        String size = sandwich.getSandoSize();
+        double price = getPriceBySize(size);
+        sandwich.addTopping(new NonPremiumTopping(sauceName, size, true, price));
+        System.out.println(sauceName + " Added To Your Sando (" + size + "\", $" + price + ").");
+    }
+    private double getPriceBySize(String size) {
+        return 0.0;
     }
 }

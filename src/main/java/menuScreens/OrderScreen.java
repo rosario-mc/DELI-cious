@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class OrderScreen implements DisplayScreens {
     static Scanner input = new Scanner(System.in);
-   TypeOfSandwich sandoType = new TypeOfSandwich();
+    TypeOfSandwich sandoType = new TypeOfSandwich();
     Checkout checkout = new Checkout();
 
     @Override
@@ -29,7 +29,7 @@ public class OrderScreen implements DisplayScreens {
                                      Please select an option from the following:
                     
                                                    1- Add Sando
-                  
+                    
                                                    2- Add Drink
                     
                                                    3- Add Chips

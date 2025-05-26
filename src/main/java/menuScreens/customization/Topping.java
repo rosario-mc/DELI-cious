@@ -1,16 +1,28 @@
 package menuScreens.customization;
 
 import menuScreens.DisplayScreens;
+import sandwichComponents.Sandwich;
 
 import java.util.Scanner;
 
 public class Topping implements DisplayScreens {
     static Scanner input = new Scanner(System.in);
-    Meat meat = new Meat();
-    Cheese cheese = new Cheese();
-    Veggies veg = new Veggies();
-    Sauce sauce = new Sauce();
-    Sides side = new Sides();
+    private Sandwich sandwich;
+
+    private Meat meat;
+    private Cheese cheese;
+    private Veggies veg;
+    private Sauce sauce;
+    private Side side;
+
+    public Topping(Sandwich sandwich) {
+        this.sandwich = sandwich;
+        this.meat = new Meat(sandwich);
+        this.cheese = new Cheese(sandwich);
+        this.veg = new Veggies(sandwich);
+        this.sauce = new Sauce(sandwich);
+        this.side = new Side(sandwich);
+    }
 
     @Override
     public void display() {
@@ -29,19 +41,14 @@ public class Topping implements DisplayScreens {
                            |___|                                                    |___|\s
                           (_____)--------------------------------------------------(_____)\s
                     ==============================================================================
-                              Please select the toppings you'd like from the following:
-                    
-                                                  1- Meat
-                    
-                                                  2- Cheese
-                    
-                                                  3- Veggies
-                    
-                                                  4- Sauce
-                                                  
-                                                  5- Sides
-                                                  
-                                                  0- Back
+                                                   Toppings:
+                                                   1- Meat
+                                                   2- Cheese
+                                                   3- Veggies
+                                                   4- Sauce
+                                                   5- Sides
+                                                   0- Done / Back
+                                  More flavor? Coming right up — choose your toppings:
                     """;
             System.out.println(menu);
             String choice = input.nextLine().toUpperCase();

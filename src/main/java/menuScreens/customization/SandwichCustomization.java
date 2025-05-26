@@ -1,15 +1,13 @@
 package menuScreens.customization;
 
 import menuScreens.DisplayScreens;
+import sandwichComponents.Sandwich;
 
 import java.util.Scanner;
 
 public class SandwichCustomization implements DisplayScreens {
     static Scanner input = new Scanner(System.in);
-    Bread bread = new Bread();
-    Size size = new Size();
-    Topping topping = new Topping();
-    Toast toast = new Toast();
+    Sandwich sandwich = new Sandwich();
 
     @Override
     public void display() {
@@ -43,10 +41,10 @@ public class SandwichCustomization implements DisplayScreens {
             System.out.println(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
-                case "1", "BREAD TYPE", "BREAD" -> bread.display();
-                case "2", "SANDO SIZE", "SIZE" -> size.display();
-                case "3", "TOPPINGS" -> topping.display();
-                case "4", "TOAST MY SANDO", "TOAST" -> toast.display();
+                case "1", "BREAD TYPE", "BREAD" -> new Bread(sandwich).display();
+                case "2", "SANDO SIZE", "SIZE" ->  new Size(sandwich).display();
+                case "3", "TOPPINGS" -> new Topping(sandwich).display();
+                case "4", "TOAST MY SANDO", "TOAST" -> new Toast(sandwich).display();
                 case "0", "BACK" -> run = false;
                 default -> System.out.println("Invalid option. Please try again.");
             }

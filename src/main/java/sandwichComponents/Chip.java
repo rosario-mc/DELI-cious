@@ -18,7 +18,7 @@ public class Chip implements CustomizableItem{
     }
 
     public double getPrice() {
-        return price;
+        return 1.50;
     }
 
     public void setPrice(double price) {

@@ -1,5 +1,6 @@
 package menuScreens.customization;
 
+import sandwichComponents.PremiumTopping;
 import sandwichComponents.Sandwich;
 import menuScreens.DisplayScreens;
 
@@ -7,7 +8,11 @@ import java.util.Scanner;
 
 public class Meat implements DisplayScreens {
     static Scanner input = new Scanner(System.in);
-    Sandwich meat = new Sandwich();
+    private Sandwich sandwich;
+
+    public Meat(Sandwich sandwich) {
+        this.sandwich = sandwich;
+    }
 
     @Override
     public void display() {
@@ -26,37 +31,45 @@ public class Meat implements DisplayScreens {
                                        |___|                            |___|\s
                                       (_____)--------------------------(_____)\s
                     ==============================================================================
-                                     Please select your meat option from the following:
-                    
-                                                   1- Steak
-                    
-                                                   2- Ham
-                    
-                                                   3- Salami
-                    
-                                                   4- Roast Beef
-                    
-                                                   5- Chicken
-                    
-                                                   6- Bacon
-                    
-                                                   7- Add Extra
-                    
-                                                   0- Back
+                                                    Meat Options:
+                                                     1- Steak
+                                                     2- Ham
+                                                     3- Salami
+                                                     4- Roast Beef
+                                                     5- Chicken
+                                                     6- Bacon
+                                                     7- Add Extra
+                                                     0- Done / Back
+                                         Stack it up! Choose your protein power:
                     """;
             System.out.println(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
-                case "1", "STEAK" -> meat.getToppings();
-                case "2", "HAM" -> meat.getToppings();
-                case "3", "SALAMI" -> meat.getToppings();
-                case "4", "ROAST BEEF" -> meat.getToppings();
-                case "5", "CHICKEN" -> meat.getToppings();
-                case "6", "BACON" -> meat.getToppings();
-                case "7", "ADD EXTRA", "EXTRA" -> meat.getToppings();
-                case "0", "BACK" -> run = false;
-                default -> System.out.println("Invalid option. Please try again.");
+                case "1", "STEAK" -> addMeat("Steak");
+                case "2", "HAM" -> addMeat("Ham");
+                case "3", "BACON" -> addMeat("Bacon");
+                case "4", "CHICKEN" -> addMeat("Chicken");
+                case "5", "ROAST BEEF" -> addMeat("Roast Beef");
+                case "7", "EXTRA" -> addMeat("Extra Meat");
+                case "0", "BACK", "DONE" -> run = false;
+                default -> System.out.println("Invalid option. Try again.");
             }
         }
+    }
+
+    private void addMeat(String meatName) {
+        String size = sandwich.getSandoSize();
+        double price = getPriceBySize(size);
+        sandwich.addTopping(new PremiumTopping(meatName, size, true, price));
+        System.out.println(meatName + " Added To Your Sando (" + size + "\", $" + price + ").");
+    }
+
+    private double getPriceBySize(String size) {
+        return switch (size) {
+            case "4" -> 1.00;
+            case "8" -> 2.00;
+            case "12" -> 3.00;
+            default -> 0.0;
+        };
     }
 }

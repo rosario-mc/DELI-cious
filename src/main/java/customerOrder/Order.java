@@ -93,6 +93,7 @@ public class Order {
         this.totalPrice = totalPrice;
     }
 
+
     public double calculateTotalPrice() {
         double total = 0.0;
         for (Sandwich s : sandwiches) total += s.getPrice();

@@ -7,7 +7,11 @@ import java.util.Scanner;
 
 public class Toast implements DisplayScreens {
     static Scanner input = new Scanner(System.in);
-    Sandwich toast = new Sandwich();
+    private Sandwich sandwich;
+
+    public Toast(Sandwich sandwich) {
+        this.sandwich = sandwich;
+    }
 
     @Override
     public void display() {
@@ -26,22 +30,29 @@ public class Toast implements DisplayScreens {
                                |___|                                              |___|\s
                               (_____)--------------------------------------------(_____)\s
                     ==============================================================================
-                                     Please select a size option from the following:
-                    
+                                     Warm, melty magic or soft and fresh? Toasted?
                                                    1- Yes
-                    
                                                    2- No
-                    
                                                    0- Back
+                                                 Your Option:
                     """;
             System.out.println(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
-                case "1", "YES" -> toast.isToasted();
-                case "2", "NO" -> toast.isToasted();
+                case "1", "YES" -> sandwich.setToasted(true);
+                case "2", "NO" -> sandwich.setToasted(false);
                 case "0", "BACK" -> run = false;
                 default -> System.out.println("Invalid option. Please try again.");
             }
         }
     }
-}
+    private void addToast(boolean toast) {
+        String size = sandwich.getSandoSize();
+        double price = getPriceBySize(size);
+        System.out.println(toast + " Added To Your Sando (" + size + "\", $" + price + ").");
+    }
+
+    private double getPriceBySize(String size) {
+        return 0.0;
+        }
+    }

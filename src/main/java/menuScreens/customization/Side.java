@@ -1,13 +1,18 @@
 package menuScreens.customization;
 
+import sandwichComponents.NonPremiumTopping;
 import sandwichComponents.Sandwich;
 import menuScreens.DisplayScreens;
 
 import java.util.Scanner;
 
-public class Sides implements DisplayScreens {
+public class Side implements DisplayScreens {
     static Scanner input = new Scanner(System.in);
-    Sandwich side = new Sandwich();
+    private Sandwich sandwich;
+
+    public Side(Sandwich sandwich) {
+        this.sandwich = sandwich;
+    }
 
     @Override
     public void display() {
@@ -26,7 +31,7 @@ public class Sides implements DisplayScreens {
                                      |___|                                 |___|\s
                                     (_____)-------------------------------(_____)\s
                     ==============================================================================
-                                     Please select your sides option from the following:
+                                     Give your sando some backup — choose your sides:
                     
                                                    1- Au Jus
                     
@@ -37,11 +42,21 @@ public class Sides implements DisplayScreens {
             System.out.println(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
-                case "1", "AU JUS" -> side.getToppings();
-                case "2", "SAUCE" -> side.getToppings();
+                case "1", "AU JUS" -> addSides("Au Jus");
+                case "2", "SAUCE" -> addSides("Sauce");
                 case "0", "BACK" -> run = false;
                 default -> System.out.println("Invalid option. Please try again.");
             }
         }
+    }
+
+    private void addSides(String sideName) {
+        String size = sandwich.getSandoSize();
+        double price = getPriceBySize(size);
+        sandwich.addTopping(new NonPremiumTopping(sideName, size, true, price));
+        System.out.println(sideName + " Added To Your Sando (" + size + "\", $" + price + ").");
+    }
+    private double getPriceBySize(String size) {
+        return 0.0;
     }
 }

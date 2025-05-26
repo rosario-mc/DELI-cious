@@ -1,5 +1,6 @@
 package menuScreens.customization;
 
+import sandwichComponents.NonPremiumTopping;
 import sandwichComponents.Sandwich;
 import menuScreens.DisplayScreens;
 
@@ -7,7 +8,11 @@ import java.util.Scanner;
 
 public class Size implements DisplayScreens {
     static Scanner input = new Scanner(System.in);
-    Sandwich size = new Sandwich();
+    private Sandwich sandwich;
+
+    public Size(Sandwich sandwich) {
+        this.sandwich = sandwich;
+    }
 
     @Override
     public void display() {
@@ -26,25 +31,43 @@ public class Size implements DisplayScreens {
                                          |___|                            |___|\s
                                         (_____)--------------------------(_____)\s
                     ==============================================================================
-                                     Please select a size option from the following:
-                    
-                                                   1- 4"
-                    
-                                                   2- 8"
-                    
-                                                   3- 12"
-                    
+                                                What’s your hunger level?
+                                                   1- (Small) 4"
+                                                   2- (Medium) 8"
+                                                   3- (Large) 12"
                                                    0- Back
+                                                  Size up your Sando:
                     """;
             System.out.println(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
-                case "1", "4" -> size.getSandoSize();
-                case "2", "8" -> size.getSandoSize();
-                case "3", "12" -> size.getSandoSize();
+                case "1", "SMALL", "4" -> {
+                    sandwich.setSandoSize("4");
+                    sandwich.setBasePrice(getPriceBySize("4"));
+                    run = false;
+                }
+                case "2", "MEDIUM", "8" -> {
+                    sandwich.setSandoSize("8");
+                    sandwich.setBasePrice(getPriceBySize("8"));
+                    run = false;
+                }
+                case "3", "LARGE", "12" -> {
+                    sandwich.setSandoSize("12");
+                    sandwich.setBasePrice(getPriceBySize("12"));
+                    run = false;
+                }
                 case "0", "BACK" -> run = false;
                 default -> System.out.println("Invalid option. Please try again.");
             }
         }
+    }
+
+    private double getPriceBySize(String size) {
+        return switch (size) {
+            case "4" -> 5.50;
+            case "8" -> 7.00;
+            case "12" -> 8.50;
+            default -> 0.0;
+        };
     }
 }
