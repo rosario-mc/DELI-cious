@@ -1,4 +1,4 @@
-package menuItems;
+package sandwichComponents;
 
 public interface CustomizableItem {
     void customize();

@@ -1,6 +1,6 @@
 package customerOrder;
 
-import menuItems.CustomizableItem;
+import sandwichComponents.CustomizableItem;
 
 import java.io.File;
 import java.io.IOException;

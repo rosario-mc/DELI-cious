@@ -1,6 +1,6 @@
 package menuScreens.customization;
 
-import menuItems.Sandwich;
+import sandwichComponents.Sandwich;
 import menuScreens.DisplayScreens;
 
 import java.util.Scanner;

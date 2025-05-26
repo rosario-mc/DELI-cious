@@ -1,4 +1,4 @@
-package menuItems;
+package sandwichComponents;
 
 import java.util.ArrayList;
 import java.util.List;

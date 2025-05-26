@@ -1,8 +1,8 @@
 package customerOrder;
 
-import menuItems.Chip;
-import menuItems.Drink;
-import menuItems.Sandwich;
+import sandwichComponents.Chip;
+import sandwichComponents.Drink;
+import sandwichComponents.Sandwich;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
