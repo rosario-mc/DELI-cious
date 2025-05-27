@@ -8,6 +8,8 @@ import java.util.Scanner;
 public class OrderScreen implements DisplayScreens {
     static Scanner input = new Scanner(System.in);
     TypeOfSandwich sandoType;
+    ChipScreen chips;
+    DrinkScreen drinks;
     Checkout checkout;
     Order currentOrder = new Order();
     Utils util;
@@ -15,6 +17,8 @@ public class OrderScreen implements DisplayScreens {
     public OrderScreen() {
         sandoType = new TypeOfSandwich(currentOrder);
         checkout = new Checkout(currentOrder);
+        chips = new ChipScreen(currentOrder);
+        drinks = new DrinkScreen(currentOrder);
     }
 
     public void getInfo() {
@@ -74,16 +78,12 @@ public class OrderScreen implements DisplayScreens {
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
                 case "1", "ADD SANDWICH", "SANDWICH", "ADD SANDO", "SANDO" -> sandoType.display();
-                //case "2", "ADD DRINK", "DRINK" ->
-                //case "3", "ADD CHIPS", "CHIPS" ->
+                case "2", "ADD DRINK", "DRINK" -> drinks.display();
+                case "3", "ADD CHIPS", "CHIPS" -> chips.display();
                 case "4", "CHECKOUT" -> checkout.display();
                 case "0", "CANCEL ORDER", "CANCEL" -> run = false;
                 default -> System.out.println("Invalid option. Please try again.");
             }
         }
-    }
-
-    public static void clearScreen() {
-        System.out.print("\n".repeat(50));
     }
 }

@@ -12,7 +12,6 @@ public class TypeOfSandwich implements DisplayScreens {
     private Order order;
 
 
-
     public TypeOfSandwich(Order order) {
         this.order = order;
     }

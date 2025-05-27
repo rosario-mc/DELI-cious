@@ -84,7 +84,21 @@ public class Order {
     }
 
     public double getTotalPrice() {
-        return calculateTotalPrice();
+        double total = 0;
+
+        for (Sandwich sandwich : sandwiches) {
+            total += sandwich.calculatePrice();
+        }
+
+        for (Drink drink : drinks) {
+            total += drink.calculatePrice();
+        }
+
+        for (Chip chip : chips) {
+            total += chip.calculatePrice();
+        }
+
+        return total;
     }
 
     public void setTotalPrice(double totalPrice) {

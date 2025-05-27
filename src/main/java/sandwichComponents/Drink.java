@@ -1,14 +1,17 @@
 package sandwichComponents;
 
-public class Drink implements CustomizableItem{
+public class Drink implements CustomizableItem {
     private String name;
     private String size;
     private double price;
 
-    public Drink(String name, String size, double price) {
+    public Drink(String name, String size) {
         this.name = name;
-        this.size = size;
-        this.price = price;
+        setSize(size); // will set price too
+    }
+
+    public Drink(String name) {
+        this.name = name;
     }
 
     public String getName() {
@@ -25,10 +28,21 @@ public class Drink implements CustomizableItem{
 
     public void setSize(String size) {
         this.size = size;
+        this.price = getPriceBySize(size);
     }
 
     public double getPrice() {
         return price;
+    }
+
+
+    private double getPriceBySize(String size) {
+        return switch (size) {
+            case "SMALL" -> 2.00;
+            case "MEDIUM" -> 2.50;
+            case "LARGE" -> 3.00;
+            default -> 0.0;
+        };
     }
 
     public void setPrice(double price) {
@@ -43,6 +57,11 @@ public class Drink implements CustomizableItem{
 
     @Override
     public double calculatePrice() {
-        return 0;
+        return getPriceBySize(size);
+    }
+
+    @@Override
+    public String toString() {
+        return name + " ($" + String.format("%.2f", price) + ")";
     }
 }
