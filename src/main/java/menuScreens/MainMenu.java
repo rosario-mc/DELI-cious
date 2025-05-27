@@ -39,7 +39,7 @@ public class MainMenu implements DisplayScreens {
             System.out.print(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
-                case "1", "NEW ORDER", "ORDER", "NEW" -> order.display();
+                case "1", "NEW ORDER", "ORDER", "NEW" -> order.getInfo();
                 case "2", "EXIT", "DONE", "BYE", "GOODBYE" -> {
                     System.out.println("==============================================================================\n\n\n" +
                             "                      :*#%%%@@@%%%%%%%%%%%%%@@%%%%*=                     \n" +

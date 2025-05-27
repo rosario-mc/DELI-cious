@@ -16,9 +16,9 @@ public class Sauce implements DisplayScreens {
 
     @Override
     public void display() {
-        boolean run = true;
-        while (run) {
-            String menu = """
+        boolean selecting = true;
+        while (selecting) {
+            System.out.println("""
                                     _____                                  _____\s
                                    ( ___ )--------------------------------( ___ )
                                     |   |                                  |   |\s
@@ -39,30 +39,39 @@ public class Sauce implements DisplayScreens {
                                                     5- Thousand Islands
                                                     6- Vinaigrette
                                                     7- Add Extra
-                                                    0- Back
-                                             Pick Your Perfect Drizzle:\s""";
-            System.out.print(menu);
-            String choice = input.nextLine().toUpperCase();
-            switch (choice) {
-                case "1", "MAYO" -> addSauce("Mayo");
-                case "2", "MUSTARD" -> addSauce("Mustard");
-                case "3", "KETCHUP" -> addSauce("Ketchup");
-                case "4", "RANCH" -> addSauce("Ranch");
-                case "5", "THOUSAND ISLANDS" -> addSauce("Thousand Islands");
-                case "6", "VINAIGRETTE" -> addSauce("Vinaigrette");
-                case "7", "ADD EXTRA" -> addSauce("Extra Sauce");
-                case "0", "BACK" -> run = false;
-                default -> System.out.println("Invalid Option. Please Try Again.");
+                                                    0- Done Choosing Sauces
+                                         (Separate By Comma, If Choosing Multiple):
+                                               Pick Your Perfect Drizzle:\s""");
+            String inputLine = input.nextLine();
+            String[] choices = inputLine.split("\\s*,\\s*");
+
+            for (String choice : choices) {
+                choice = choice.toUpperCase().trim();
+
+                switch (choice) {
+                    case "1", "MAYO" -> addSauce("Mayo");
+                    case "2", "MUSTARD" -> addSauce("Mustard");
+                    case "3", "KETCHUP" -> addSauce("Ketchup");
+                    case "4", "RANCH" -> addSauce("Ranch");
+                    case "5", "THOUSAND ISLANDS" -> addSauce("Thousand Islands");
+                    case "6", "VINAIGRETTE" -> addSauce("Vinaigrette");
+                    case "7", "ADD EXTRA" -> addSauce("Extra Sauce");
+                    case "0", "DONE" -> selecting = false;
+                    default -> System.out.println("Invalid Option. Please Try Again.");
+                }
+                if (!selecting) break;
             }
         }
+        System.out.println("Sauces Added! Returning To Main Customization...");
     }
-    private void addSauce(String sauceName) {
-        String size = sandwich.getSandoSize();
-        double price = getPriceBySize(size);
-        sandwich.addTopping(new NonPremiumTopping(sauceName, size, true, price));
-        System.out.println(sauceName + " Added To Your Sando (" + size + "\", $" + price + ").");
+
+        private void addSauce (String sauceName){
+            String size = sandwich.getSandoSize();
+            double price = getPriceBySize(size);
+            sandwich.addTopping(new NonPremiumTopping(sauceName, size, true, price));
+            System.out.println(sauceName + " Added To Your Sando.");
+        }
+        private double getPriceBySize (String size){
+            return 0.0;
+        }
     }
-    private double getPriceBySize(String size) {
-        return 0.0;
-    }
-}

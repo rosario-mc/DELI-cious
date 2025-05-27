@@ -13,7 +13,7 @@ public class ReceiptGenerator {
 
     public String generateReceipt(Order order) {
         StringBuilder sb = new StringBuilder();
-        sb.append("ORDER NAME: ").append(order.getName()).append("\n");
+        sb.append("ORDER NAME: ").append(order.getOrderName()).append("\n");
         sb.append("ORDER ID: ").append(order.getOrderID()).append("\n");
         sb.append("ORDER DATE: ").append(order.getOrderDate()).append("\n");
 

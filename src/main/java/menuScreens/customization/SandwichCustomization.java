@@ -1,16 +1,15 @@
 package menuScreens.customization;
 
-import menuScreens.DisplayScreens;
 import sandwichComponents.Sandwich;
 
 import java.util.Scanner;
 
-public class SandwichCustomization implements DisplayScreens {
+public class SandwichCustomization{
     static Scanner input = new Scanner(System.in);
     Sandwich sandwich = new Sandwich();
 
-    @Override
-    public void display() {
+
+    public Sandwich display() {
         boolean run = true;
         while (run) {
             String menu = """
@@ -44,5 +43,6 @@ public class SandwichCustomization implements DisplayScreens {
                 default -> System.out.println("Invalid Option. Please Try Again.");
             }
         }
+        return sandwich;
     }
 }

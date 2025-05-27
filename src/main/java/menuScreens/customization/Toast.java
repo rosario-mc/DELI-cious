@@ -48,7 +48,7 @@ public class Toast implements DisplayScreens {
     private void addToast(boolean toast) {
         String size = sandwich.getSandoSize();
         double price = getPriceBySize(size);
-        System.out.println(toast + " Your Sando (" + size + "\", $" + price + ").");
+        System.out.println(toast + " Your Sando.");
     }
 
     private double getPriceBySize(String size) {

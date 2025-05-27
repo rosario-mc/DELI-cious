@@ -16,9 +16,9 @@ public class Veggies implements DisplayScreens {
 
     @Override
     public void display() {
-        boolean run = true;
-        while (run) {
-            String menu = """
+        boolean selecting = true;
+        while (selecting) {
+            System.out.println("""
                                 _____                                             _____\s
                                ( ___ )-------------------------------------------( ___ )
                                 |   |                                             |   |\s
@@ -31,7 +31,7 @@ public class Veggies implements DisplayScreens {
                                 |___|                                             |___|\s
                                (_____)-------------------------------------------(_____)\s
                     ==============================================================================
-                                             Pick your fresh and crispy crew:
+                                             Pick Your Fresh & Crispy Crew:
                                                    1- Lettuce
                                                    2- Peppers
                                                    3- Onions
@@ -42,32 +42,40 @@ public class Veggies implements DisplayScreens {
                                                    8- Guacamole
                                                    9- Mushrooms
                                                    10- Add Extra Veggies
-                                                   0- Back
-                                                Your Green Selection:\s""";
-            System.out.print(menu);
-            String choice = input.nextLine().toUpperCase();
-            switch (choice) {
-                case "1", "LETTUCE" -> addVeggies("Lettuce");
-                case "2", "PEPPERS" -> addVeggies("Peppers");
-                case "3", "ONIONS" -> addVeggies("Onions");
-                case "4", "TOMATOES" -> addVeggies("Tomatoes");
-                case "5", "JALAPEÑOS" -> addVeggies("Jalapeños");
-                case "6", "CUCUMBERS" -> addVeggies("Cucumbers");
-                case "7", "PICKLES" -> addVeggies("Pickles");
-                case "8", "GUACAMOLE" -> addVeggies("Guacamole");
-                case "9", "MUSHROOMS" -> addVeggies("Mushrooms");
-                case "10", "ADD EXTRA", "EXTRA" -> addVeggies("Extra Veggies");
-                case "0", "BACK" -> run = false;
-                default -> System.out.println("Invalid Option. Please Try Again.");
+                                                   0- Done Choosing Veggies
+                                          (Separate By Comma, If Choosing Multiple)
+                                                 Your Green Selections:\s""");
+            String inputLine = input.nextLine();
+            String[] choices = inputLine.split("\\s*,\\s*");
+
+            for (String choice : choices) {
+                choice = choice.toUpperCase().trim();
+
+                switch (choice) {
+                    case "1", "LETTUCE" -> addVeggies("Lettuce");
+                    case "2", "PEPPERS" -> addVeggies("Peppers");
+                    case "3", "ONIONS" -> addVeggies("Onions");
+                    case "4", "TOMATOES" -> addVeggies("Tomatoes");
+                    case "5", "JALAPEÑOS" -> addVeggies("Jalapeños");
+                    case "6", "CUCUMBERS" -> addVeggies("Cucumbers");
+                    case "7", "PICKLES" -> addVeggies("Pickles");
+                    case "8", "GUACAMOLE" -> addVeggies("Guacamole");
+                    case "9", "MUSHROOMS" -> addVeggies("Mushrooms");
+                    case "10", "ADD EXTRA", "EXTRA" -> addVeggies("Extra Veggies");
+                    case "0", "DONE" -> selecting = false;
+                    default -> System.out.println("Invalid Option. Please Try Again.");
+                }
+                if (!selecting) break;
             }
         }
+        System.out.println("Veggies Added! Returning To Main Customization...");
     }
 
     private void addVeggies(String vegName) {
         String size = sandwich.getSandoSize();
         double price = getPriceBySize(size);
         sandwich.addTopping(new NonPremiumTopping(vegName, size, false, price));
-        System.out.println(vegName + " Added To Your Sando (" + size + "\", $" + price + ").");
+        System.out.println(vegName + " Added To Your Sando.");
     }
 
     private double getPriceBySize(String size) {

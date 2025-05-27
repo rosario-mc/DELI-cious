@@ -51,7 +51,7 @@ public class Side implements DisplayScreens {
         String size = sandwich.getSandoSize();
         double price = getPriceBySize(size);
         sandwich.addTopping(new NonPremiumTopping(sideName, size, true, price));
-        System.out.println(sideName + " Added To Your Order (" + size + "\", $" + price + ").");
+        System.out.println(sideName + " Added To Your Order.");
     }
     private double getPriceBySize(String size) {
         return 0.0;

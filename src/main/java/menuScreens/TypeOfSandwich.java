@@ -1,12 +1,21 @@
 package menuScreens;
 
+import customerOrder.Order;
 import menuScreens.customization.SandwichCustomization;
+import sandwichComponents.Sandwich;
 
 import java.util.Scanner;
 
 public class TypeOfSandwich implements DisplayScreens {
     static Scanner input = new Scanner(System.in);
     SandwichCustomization sando = new SandwichCustomization();
+    private Order order;
+
+
+
+    public TypeOfSandwich(Order order) {
+        this.order = order;
+    }
 
     @Override
     public void display() {
@@ -34,9 +43,13 @@ public class TypeOfSandwich implements DisplayScreens {
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
                 //case "1", "SIGNATURE SANDOS" -> bread.display();
-                case "2", "BUILD MY OWN SANDO" -> sando.display();
+                case "2", "BUILD MY OWN SANDO" -> {
+                    Sandwich builtSandwich = sando.display();
+                    order.addSandwich(builtSandwich);
+                    System.out.println("Sando Added To Your Order!");
+                }
                 case "0", "BACK" -> run = false;
-                default -> System.out.println("Invalid option. Please try again.");
+                default -> System.out.println("Invalid Option. Please Try Again.");
             }
         }
     }

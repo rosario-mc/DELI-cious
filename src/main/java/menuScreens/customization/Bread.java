@@ -67,7 +67,7 @@ public class Bread implements DisplayScreens {
         String size = sandwich.getSandoSize();
         double price = getPriceBySize(size);
         sandwich.addTopping(new PremiumTopping(breadName, size, true, price));
-        System.out.println(breadName + " Bread Added To Your Sando (" + size + "\", $" + price + ").");
+        System.out.println(breadName + " Bread Added To Your Sando.");
     }
 
     private double getPriceBySize(String size) {

@@ -11,7 +11,6 @@ public class Sandwich implements CustomizableItem {
     private List<String> sauces;
     private double basePrice;  // <-- Add this
 
-    // Constructors
     public Sandwich(String breadType, String sandoSize, boolean toasted, List<Topping> toppings, List<String> sauces) {
         this.breadType = breadType;
         this.sandoSize = sandoSize;
@@ -30,7 +29,6 @@ public class Sandwich implements CustomizableItem {
         this.basePrice = 0.0;
     }
 
-    // Getters & Setters
     public String getBreadType() {
         return breadType;
     }
@@ -59,7 +57,6 @@ public class Sandwich implements CustomizableItem {
         return toppings;
     }
 
-    // Fix: The setter should accept a List<Topping>, not return it
     public void setToppings(List<Topping> toppings) {
         this.toppings = toppings;
     }
@@ -76,7 +73,6 @@ public class Sandwich implements CustomizableItem {
         this.sauces = sauces;
     }
 
-    // New base price getter and setter
     public double getBasePrice() {
         return basePrice;
     }
@@ -89,12 +85,11 @@ public class Sandwich implements CustomizableItem {
         this.basePrice = basePrice;
     }
 
-    // Implementing calculatePrice() to sum base price + toppings price
     @Override
     public double calculatePrice() {
         double toppingsTotal = 0.0;
         for (Topping topping : toppings) {
-            toppingsTotal += topping.getPrice(); // Assuming Topping has getPrice()
+            toppingsTotal += topping.getPrice();
         }
         return basePrice + toppingsTotal;
     }
@@ -102,5 +97,32 @@ public class Sandwich implements CustomizableItem {
     @Override
     public void customize() {
         // Your customization logic here if needed
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder toppingsList = new StringBuilder();
+        if (toppings.isEmpty()) {
+            toppingsList.append("    None");
+        } else {
+            for (Topping topping : toppings) {
+                toppingsList.append("    • ").append(topping.toString()).append("\n");
+            }
+        }
+
+        return """
+       Sando: Build My Own Sando
+         - Bread: %s
+         - Size: %s
+         - Toppings:%s
+         - Toasted: %s
+         - Price: $%.2f
+       """.formatted(
+                breadType,
+                sandoSize,
+                toppingsList.toString().trim(),
+                toasted ? "Yes" : "No",
+                calculatePrice()
+        );
     }
 }

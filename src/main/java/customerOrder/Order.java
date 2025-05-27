@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
-    private String name;
+    private String orderName;
     private String orderID;
     private String orderDate = LocalDateTime.now().toString();
     private List<Sandwich> sandwiches = new ArrayList<>();
@@ -17,8 +17,8 @@ public class Order {
     private List<Chip> chips = new ArrayList<>();
     private double totalPrice;
 
-    public Order(String name, String orderID, String orderDate, List<Sandwich> sandwiches, List<Drink> drinks, List<Chip> chips, double totalPrice) {
-        this.name = name;
+    public Order(String orderName, String orderID, String orderDate, List<Sandwich> sandwiches, List<Drink> drinks, List<Chip> chips, double totalPrice) {
+        this.orderName = orderName;
         this.orderID = orderID;
         this.orderDate = orderDate;
         this.sandwiches = sandwiches;
@@ -28,7 +28,7 @@ public class Order {
     }
 
     public Order() {
-        this.name = name;
+        this.orderName = orderName;
         this.orderID = orderID;
         this.orderDate = orderDate;
         this.sandwiches = sandwiches;
@@ -37,12 +37,12 @@ public class Order {
         this.totalPrice = totalPrice;
     }
 
-    public String getName() {
-        return name;
+    public String getOrderName() {
+        return orderName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setOrderName(String orderName) {
+        this.orderName = orderName;
     }
 
     public String getOrderID() {
@@ -91,6 +91,10 @@ public class Order {
 
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public void addSandwich(Sandwich sandwich) {
+        sandwiches.add(sandwich);
     }
 
 
