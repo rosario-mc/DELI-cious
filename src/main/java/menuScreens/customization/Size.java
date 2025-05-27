@@ -1,6 +1,5 @@
 package menuScreens.customization;
 
-import sandwichComponents.NonPremiumTopping;
 import sandwichComponents.Sandwich;
 import menuScreens.DisplayScreens;
 

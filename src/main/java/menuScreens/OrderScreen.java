@@ -49,7 +49,7 @@ public class OrderScreen implements DisplayScreens {
                     inputtingInfo = false;
                 }
                 case "3", "CANCEL" -> {
-                    System.out.println("Order canceled. See you next time!");
+                    System.out.println("Order Canceled. See You Next Time!");
                     inputtingInfo = false;
                 }
                 default -> System.out.println("Invalid Option. Please Try Again.");
