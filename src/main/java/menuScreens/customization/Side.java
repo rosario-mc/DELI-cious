@@ -31,18 +31,18 @@ public class Side implements DisplayScreens {
                                      |___|                                 |___|\s
                                     (_____)-------------------------------(_____)\s
                     ==============================================================================
-                                             Give your sando some backup!
-                                                   1- Au Jus
-                                                   2- Sauce
-                                                   0- Back
-                                                Choose your sides:\s""";
+                                            Give Your Sando Some Backup!
+                                                    1- Au Jus
+                                                    2- Sauce
+                                                    0- Back
+                                                Choose Your Sides:\s""";
             System.out.print(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
                 case "1", "AU JUS" -> addSides("Au Jus");
                 case "2", "SAUCE" -> addSides("Sauce");
                 case "0", "BACK" -> run = false;
-                default -> System.out.println("Invalid option. Please try again.");
+                default -> System.out.println("Invalid Option. Please Try Again.");
             }
         }
     }
@@ -51,7 +51,7 @@ public class Side implements DisplayScreens {
         String size = sandwich.getSandoSize();
         double price = getPriceBySize(size);
         sandwich.addTopping(new NonPremiumTopping(sideName, size, true, price));
-        System.out.println(sideName + " Added To Your Sando (" + size + "\", $" + price + ").");
+        System.out.println(sideName + " Added To Your Order (" + size + "\", $" + price + ").");
     }
     private double getPriceBySize(String size) {
         return 0.0;

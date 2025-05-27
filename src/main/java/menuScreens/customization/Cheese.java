@@ -31,14 +31,14 @@ public class Cheese implements DisplayScreens {
                                 |___|                                         |___|\s
                                (_____)---------------------------------------(_____)\s
                     ==============================================================================
-                                             Melt it, layer it, love it!
+                                             Melt It, Layer It, Love It!
                                                    1- American
                                                    2- Provolone
                                                    3- Cheddar
                                                    4- Swiss
                                                    5- Add Extra
                                                    0- Done / Back
-                                              Choose your cheese!:\s""";
+                                              Choose Your Cheese!:\s""";
             System.out.print(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
@@ -48,7 +48,7 @@ public class Cheese implements DisplayScreens {
                 case "4", "SWISS" -> addCheese("Swiss");
                 case "5", "ADD EXTRA", "EXTRA" -> addCheese("Extra Cheese");
                 case "0", "BACK" -> run = false;
-                default -> System.out.println("Invalid option. Please try again.");
+                default -> System.out.println("Invalid Option. Please Try Again..");
             }
         }
     }
@@ -57,7 +57,7 @@ public class Cheese implements DisplayScreens {
         String size = sandwich.getSandoSize();
         double price = getPriceBySize(size);
         sandwich.addTopping(new PremiumTopping(cheeseName, size, true, price));
-        System.out.println(cheeseName + " Added To Your Sando (" + size + "\", $" + price + ").");
+        System.out.println(cheeseName + " Cheese Added To Your Sando (" + size + "\", $" + price + ").");
     }
 
     private double getPriceBySize(String size) {

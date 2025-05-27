@@ -58,7 +58,7 @@ public class Veggies implements DisplayScreens {
                 case "9", "MUSHROOMS" -> addVeggies("Mushrooms");
                 case "10", "ADD EXTRA", "EXTRA" -> addVeggies("Extra Veggies");
                 case "0", "BACK" -> run = false;
-                default -> System.out.println("Invalid option. Please try again.");
+                default -> System.out.println("Invalid Option. Please Try Again.");
             }
         }
     }

@@ -30,7 +30,7 @@ public class Toast implements DisplayScreens {
                                |___|                                              |___|\s
                               (_____)--------------------------------------------(_____)\s
                     ==============================================================================
-                                         Warm, melty magic or soft and fresh?
+                                         Warm, Melty Magic Or Soft & Fresh?
                                                    1- Yes
                                                    2- No
                                                    0- Back
@@ -41,14 +41,14 @@ public class Toast implements DisplayScreens {
                 case "1", "YES" -> sandwich.setToasted(true);
                 case "2", "NO" -> sandwich.setToasted(false);
                 case "0", "BACK" -> run = false;
-                default -> System.out.println("Invalid option. Please try again.");
+                default -> System.out.println("Invalid Option. Please Try Again.");
             }
         }
     }
     private void addToast(boolean toast) {
         String size = sandwich.getSandoSize();
         double price = getPriceBySize(size);
-        System.out.println(toast + " Added To Your Sando (" + size + "\", $" + price + ").");
+        System.out.println(toast + " Your Sando (" + size + "\", $" + price + ").");
     }
 
     private double getPriceBySize(String size) {

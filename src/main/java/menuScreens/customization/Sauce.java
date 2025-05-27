@@ -31,7 +31,7 @@ public class Sauce implements DisplayScreens {
                                     |___|                                  |___|\s
                                    (_____)--------------------------------(_____)\s
                     ==============================================================================
-                                                  Let’s get saucy!
+                                                  Let’s Get Saucy!
                                                     1- Mayo
                                                     2- Mustard
                                                     3- Ketchup
@@ -40,7 +40,7 @@ public class Sauce implements DisplayScreens {
                                                     6- Vinaigrette
                                                     7- Add Extra
                                                     0- Back
-                                               Pick your perfect drizzle:\s""";
+                                             Pick Your Perfect Drizzle:\s""";
             System.out.print(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
@@ -52,7 +52,7 @@ public class Sauce implements DisplayScreens {
                 case "6", "VINAIGRETTE" -> addSauce("Vinaigrette");
                 case "7", "ADD EXTRA" -> addSauce("Extra Sauce");
                 case "0", "BACK" -> run = false;
-                default -> System.out.println("Invalid option. Please try again.");
+                default -> System.out.println("Invalid Option. Please Try Again.");
             }
         }
     }

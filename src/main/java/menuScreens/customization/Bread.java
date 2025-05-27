@@ -31,13 +31,13 @@ public class Bread implements DisplayScreens {
                                       |___|                                 |___|\s
                                      (_____)-------------------------------(_____)\s
                     ==============================================================================
-                                          Every masterpiece starts with a solid base!
+                                       Every Masterpiece Starts With A Solid Base!
                                                       1- White
                                                       2- Wheat
                                                       3- Rye
                                                       4- Wrap
                                                       0- Back
-                                                Pick your bread:\s""";
+                                                Pick Your Bread:\s""";
             System.out.print(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
@@ -58,7 +58,7 @@ public class Bread implements DisplayScreens {
                     run = false;
                 }
                 case "0", "BACK" -> run = false;
-                default -> System.out.println("Invalid option. Please try again.");
+                default -> System.out.println("Invalid Option. Please Try Again.");
             }
         }
     }
@@ -67,7 +67,7 @@ public class Bread implements DisplayScreens {
         String size = sandwich.getSandoSize();
         double price = getPriceBySize(size);
         sandwich.addTopping(new PremiumTopping(breadName, size, true, price));
-        System.out.println(breadName + " Added To Your Sando (" + size + "\", $" + price + ").");
+        System.out.println(breadName + " Bread Added To Your Sando (" + size + "\", $" + price + ").");
     }
 
     private double getPriceBySize(String size) {

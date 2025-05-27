@@ -58,7 +58,7 @@ public class Topping implements DisplayScreens {
                 case "4", "SAUCES" -> sauce.display();
                 case "5", "SIDES" -> side.display();
                 case "0", "BACK" -> run = false;
-                default -> System.out.println("Invalid option. Please try again.");
+                default -> System.out.println("Invalid Option. Please Try Again.");
             }
         }
     }

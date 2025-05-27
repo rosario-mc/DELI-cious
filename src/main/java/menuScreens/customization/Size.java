@@ -31,12 +31,12 @@ public class Size implements DisplayScreens {
                                          |___|                            |___|\s
                                         (_____)--------------------------(_____)\s
                     ==============================================================================
-                                                What’s your hunger level?
+                                                What’s Your Hunger Level?
                                                    1- (Small) 4"
                                                    2- (Medium) 8"
                                                    3- (Large) 12"
                                                    0- Back
-                                                  Size up your Sando:\s""";
+                                                  Size Up Your Sando:\s""";
             System.out.print(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {

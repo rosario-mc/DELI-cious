@@ -26,13 +26,13 @@ public class SandwichCustomization implements DisplayScreens {
                      |___|                                                                   |___|\s
                     (_____)-----------------------------------------------------------------(_____)\s
                     ==============================================================================
-                                            Let’s craft your dream Sando!
+                                            Let’s Craft Your Dream Sando!
                                                   1- Pick Your Bread
                                                   2- Size It Up
                                                   3- Top It Off
                                                   4- Toast It Up
                                                   0- Back to Menu
-                                                   What’s next?:\s""";
+                                                   What’s Next?:\s""";
             System.out.print(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
@@ -41,7 +41,7 @@ public class SandwichCustomization implements DisplayScreens {
                 case "3", "TOPPINGS" -> new Topping(sandwich).display();
                 case "4", "TOAST MY SANDO", "TOAST" -> new Toast(sandwich).display();
                 case "0", "BACK" -> run = false;
-                default -> System.out.println("Invalid option. Please try again.");
+                default -> System.out.println("Invalid Option. Please Try Again.");
             }
         }
     }
