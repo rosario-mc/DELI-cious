@@ -41,16 +41,15 @@ public class Topping implements DisplayScreens {
                            |___|                                                    |___|\s
                           (_____)--------------------------------------------------(_____)\s
                     ==============================================================================
-                                                   Toppings:
+                                              More flavor? Coming right up!
                                                    1- Meat
                                                    2- Cheese
                                                    3- Veggies
                                                    4- Sauce
                                                    5- Sides
                                                    0- Done / Back
-                                  More flavor? Coming right up — choose your toppings:
-                    """;
-            System.out.println(menu);
+                                                Choose your toppings:\s""";
+            System.out.print(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
                 case "1", "MEAT" -> meat.display();

@@ -31,18 +31,17 @@ public class Sauce implements DisplayScreens {
                                     |___|                                  |___|\s
                                    (_____)--------------------------------(_____)\s
                     ==============================================================================
-                                     Let’s get saucy — pick your perfect drizzle:
-                    
-                                                   1- Mayo
-                                                   2- Mustard
-                                                   3- Ketchup
-                                                   4- Ranch
-                                                   5- Thousand Islands
-                                                   6- Vinaigrette
-                                                   7- Add Extra
-                                                   0- Back
-                    """;
-            System.out.println(menu);
+                                                  Let’s get saucy!
+                                                    1- Mayo
+                                                    2- Mustard
+                                                    3- Ketchup
+                                                    4- Ranch
+                                                    5- Thousand Islands
+                                                    6- Vinaigrette
+                                                    7- Add Extra
+                                                    0- Back
+                                               Pick your perfect drizzle:\s""";
+            System.out.print(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
                 case "1", "MAYO" -> addSauce("Mayo");

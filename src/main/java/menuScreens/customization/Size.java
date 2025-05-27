@@ -36,9 +36,8 @@ public class Size implements DisplayScreens {
                                                    2- (Medium) 8"
                                                    3- (Large) 12"
                                                    0- Back
-                                                  Size up your Sando:
-                    """;
-            System.out.println(menu);
+                                                  Size up your Sando:\s""";
+            System.out.print(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
                 case "1", "SMALL", "4" -> {

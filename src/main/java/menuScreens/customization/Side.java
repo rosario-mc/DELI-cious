@@ -31,15 +31,12 @@ public class Side implements DisplayScreens {
                                      |___|                                 |___|\s
                                     (_____)-------------------------------(_____)\s
                     ==============================================================================
-                                     Give your sando some backup — choose your sides:
-                    
+                                             Give your sando some backup!
                                                    1- Au Jus
-                    
                                                    2- Sauce
-                    
                                                    0- Back
-                    """;
-            System.out.println(menu);
+                                                Choose your sides:\s""";
+            System.out.print(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
                 case "1", "AU JUS" -> addSides("Au Jus");

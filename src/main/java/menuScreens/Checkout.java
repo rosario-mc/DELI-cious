@@ -27,12 +27,11 @@ public class Checkout implements DisplayScreens {
                             |___|                                                      |___|\s
                            (_____)----------------------------------------------------(_____)\s
                     ==============================================================================
-                                      Please select an option from the following:
-                                                    1- Confirm
-                    
-                                                    2- Cancel
-                    """;
-            System.out.println(menu);
+                                                   Ready To Eat?
+                                                  1- Confirm Order
+                                                  2- Cancel Order
+                                                   Your Choice:\s""";
+            System.out.print(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
                 case "1", "CONFIRM" -> {

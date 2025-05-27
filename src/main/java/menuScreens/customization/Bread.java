@@ -31,15 +31,14 @@ public class Bread implements DisplayScreens {
                                       |___|                                 |___|\s
                                      (_____)-------------------------------(_____)\s
                     ==============================================================================
-                                                  Bread Options:
+                                          Every masterpiece starts with a solid base!
                                                       1- White
                                                       2- Wheat
                                                       3- Rye
                                                       4- Wrap
                                                       0- Back
-                              Every masterpiece starts with a solid base — pick your bread:
-                    """;
-            System.out.println(menu);
+                                                Pick your bread:\s""";
+            System.out.print(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
                 case "1", "WHITE" -> {

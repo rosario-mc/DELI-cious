@@ -30,13 +30,12 @@ public class Toast implements DisplayScreens {
                                |___|                                              |___|\s
                               (_____)--------------------------------------------(_____)\s
                     ==============================================================================
-                                     Warm, melty magic or soft and fresh? Toasted?
+                                         Warm, melty magic or soft and fresh?
                                                    1- Yes
                                                    2- No
                                                    0- Back
-                                                 Your Option:
-                    """;
-            System.out.println(menu);
+                                                   Toasted:\s""";
+            System.out.print(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
                 case "1", "YES" -> sandwich.setToasted(true);

@@ -26,19 +26,14 @@ public class SandwichCustomization implements DisplayScreens {
                      |___|                                                                   |___|\s
                     (_____)-----------------------------------------------------------------(_____)\s
                     ==============================================================================
-                          Please select an option from the following to build your Sando:
-                    
-                                                 1- Bread Type
-                    
-                                                 2- Sando Size
-                    
-                                                 3- Toppings
-                    
-                                                 4- Toast My Sando
-                    
-                                                 0- Back
-                    """;
-            System.out.println(menu);
+                                            Let’s craft your dream Sando!
+                                                  1- Pick Your Bread
+                                                  2- Size It Up
+                                                  3- Top It Off
+                                                  4- Toast It Up
+                                                  0- Back to Menu
+                                                   What’s next?:\s""";
+            System.out.print(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
                 case "1", "BREAD TYPE", "BREAD" -> new Bread(sandwich).display();

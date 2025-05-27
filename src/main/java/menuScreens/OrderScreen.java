@@ -26,19 +26,14 @@ public class OrderScreen implements DisplayScreens {
                                      |___|                                 |___|\s
                                     (_____)-------------------------------(_____)\s
                     ==============================================================================
-                                     Please select an option from the following:
-                    
+                                      What would you like to add to your feast?
                                                    1- Add Sando
-                    
                                                    2- Add Drink
-                    
                                                    3- Add Chips
-                    
                                                    4- Checkout
-                    
                                                    0- Cancel Order
-                    """;
-            System.out.println(menu);
+                                                   Your Choice:\s""";
+            System.out.print(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
                 case "1", "ADD SANDWICH", "SANDWICH", "ADD SANDO", "SANDO" -> sandoType.display();

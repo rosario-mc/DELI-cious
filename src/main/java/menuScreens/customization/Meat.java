@@ -31,7 +31,7 @@ public class Meat implements DisplayScreens {
                                        |___|                            |___|\s
                                       (_____)--------------------------(_____)\s
                     ==============================================================================
-                                                    Meat Options:
+                                                  Stack the meats up!
                                                      1- Steak
                                                      2- Ham
                                                      3- Salami
@@ -40,9 +40,8 @@ public class Meat implements DisplayScreens {
                                                      6- Bacon
                                                      7- Add Extra
                                                      0- Done / Back
-                                         Stack it up! Choose your protein power:
-                    """;
-            System.out.println(menu);
+                                              Choose your protein power:\s""";
+            System.out.print(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
                 case "1", "STEAK" -> addMeat("Steak");

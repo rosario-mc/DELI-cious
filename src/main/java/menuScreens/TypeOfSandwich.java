@@ -25,15 +25,12 @@ public class TypeOfSandwich implements DisplayScreens {
                                      |___|                                  |___|\s
                                     (_____)--------------------------------(_____)\s
                     ==============================================================================
-                                      Please select an option from the following:
-                    
+                                     Let’s get this flavor party started! What sounds good?
                                                  1- Signature Sandos
-                    
                                                  2- Build My Own Sando
-                    
                                                  0- Back
-                    """;
-            System.out.println(menu);
+                                                Your Choice:\s""";
+            System.out.print(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
                 //case "1", "SIGNATURE SANDOS" -> bread.display();

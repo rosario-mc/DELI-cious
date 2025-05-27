@@ -31,19 +31,18 @@ public class Cheese implements DisplayScreens {
                                 |___|                                         |___|\s
                                (_____)---------------------------------------(_____)\s
                     ==============================================================================
-                                                  Cheese Options:
+                                             Melt it, layer it, love it!
                                                    1- American
                                                    2- Provolone
                                                    3- Cheddar
                                                    4- Swiss
                                                    5- Add Extra
                                                    0- Done / Back
-                                    Melt it, layer it, love it — choose your cheese!:
-                    """;
-            System.out.println(menu);
+                                              Choose your cheese!:\s""";
+            System.out.print(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
-                case "1", "AMERICAN" -> addCheese("Steak");
+                case "1", "AMERICAN" -> addCheese("American");
                 case "2", "PROVOLONE" -> addCheese("Provolone");
                 case "3", "CHEDDAR" -> addCheese("Cheddar");
                 case "4", "SWISS" -> addCheese("Swiss");

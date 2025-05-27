@@ -31,7 +31,7 @@ public class Veggies implements DisplayScreens {
                                 |___|                                             |___|\s
                                (_____)-------------------------------------------(_____)\s
                     ==============================================================================
-                                                   Veggie Options:
+                                             Pick your fresh and crispy crew:
                                                    1- Lettuce
                                                    2- Peppers
                                                    3- Onions
@@ -43,9 +43,8 @@ public class Veggies implements DisplayScreens {
                                                    9- Mushrooms
                                                    10- Add Extra Veggies
                                                    0- Back
-                                             Pick your fresh and crispy crew:
-                    """;
-            System.out.println(menu);
+                                                Your Green Selection:\s""";
+            System.out.print(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
                 case "1", "LETTUCE" -> addVeggies("Lettuce");

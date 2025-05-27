@@ -32,12 +32,11 @@ public class MainMenu implements DisplayScreens {
                       |___|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|___|\s
                      (_____)                                                            (_____)
                     ==============================================================================
-                                      Please select an option from the following:
+                                Hungry? Ready for a Deli-cious Sando? Let's get started!
                                                     1- New Order
-                    
                                                     2- Exit
-                    """;
-            System.out.println(menu);
+                                                   Your Choice:\s""";
+            System.out.print(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
                 case "1", "NEW ORDER", "ORDER", "NEW" -> order.display();
