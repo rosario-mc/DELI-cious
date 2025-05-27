@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class Veggies implements DisplayScreens {
     static Scanner input = new Scanner(System.in);
     private Sandwich sandwich;
+    Utils util;
 
     public Veggies(Sandwich sandwich) {
         this.sandwich = sandwich;
@@ -43,8 +44,8 @@ public class Veggies implements DisplayScreens {
                                                    9- Mushrooms
                                                    10- Add Extra Veggies
                                                    0- Done Choosing Veggies
-                                          (Separate By Comma, If Choosing Multiple)
-                                                 Your Green Selections:\s""");
+                                          (Separate By Comma, If Choosing Multiple)""");
+            util.printCentered("Your Green Selections:\s", 80);
             String inputLine = input.nextLine();
             String[] choices = inputLine.split("\\s*,\\s*");
 

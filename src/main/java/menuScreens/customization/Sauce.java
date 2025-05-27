@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class Sauce implements DisplayScreens {
     static Scanner input = new Scanner(System.in);
     private Sandwich sandwich;
+    Utils util;
 
     public Sauce(Sandwich sandwich) {
         this.sandwich = sandwich;
@@ -40,8 +41,8 @@ public class Sauce implements DisplayScreens {
                                                     6- Vinaigrette
                                                     7- Add Extra
                                                     0- Done Choosing Sauces
-                                         (Separate By Comma, If Choosing Multiple):
-                                               Pick Your Perfect Drizzle:\s""");
+                                         (Separate By Comma, If Choosing Multiple)""");
+            util.printCentered("Pick Your Perfect Drizzle:\s", 80);
             String inputLine = input.nextLine();
             String[] choices = inputLine.split("\\s*,\\s*");
 

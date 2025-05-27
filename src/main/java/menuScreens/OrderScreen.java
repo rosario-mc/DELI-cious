@@ -1,6 +1,7 @@
 package menuScreens;
 
 import customerOrder.Order;
+import menuScreens.customization.Utils;
 
 import java.util.Scanner;
 
@@ -9,6 +10,7 @@ public class OrderScreen implements DisplayScreens {
     TypeOfSandwich sandoType;
     Checkout checkout;
     Order currentOrder = new Order();
+    Utils util;
 
     public OrderScreen() {
         sandoType = new TypeOfSandwich(currentOrder);
@@ -34,15 +36,16 @@ public class OrderScreen implements DisplayScreens {
                                                    Let's Get Started!
                                                     1 -Enter Your Name
                                                     2- Continue To Order
-                                                    3- Cancel\s""";
+                                                    3- Cancel
+                                                    Your Selection:\s""";
             System.out.print(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
                 case "1", "ENTER YOUR NAME" -> {
-                    System.out.print("Please enter your name: ");
+                    util.printCentered("Please enter your name: ", 80);
                     String name = input.nextLine();
                     currentOrder.setOrderName(name);
-                    System.out.println("Thanks, " + name + "!");
+                    util.printCentered("Thanks, " + name + "!\n", 83);
                 }
                 case "2", "CONTINUE TO ORDER", "ORDER" -> {
                     display();
