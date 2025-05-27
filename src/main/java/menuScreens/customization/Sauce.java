@@ -20,29 +20,30 @@ public class Sauce implements DisplayScreens {
         boolean selecting = true;
         while (selecting) {
             System.out.println("""
-                                    _____                                  _____\s
-                                   ( ___ )--------------------------------( ___ )
-                                    |   |                                  |   |\s
-                                    |   |  _____  ___  _   _ _____  _____  |   |\s
-                                    |   | /  ___|/ _ \\| | | /  __ \\|  ___| |   |\s
-                                    |   | \\ `--./ /_\\ \\ | | | /  \\/| |__   |   |\s
-                                    |   |  `--. \\  _  | | | | |    |  __|  |   |\s
-                                    |   | /\\__/ / | | | |_| | \\__/\\| |___  |   |\s
-                                    |   | \\____/\\_| |_/\\___/ \\____/\\____/  |   |\s
-                                    |___|                                  |___|\s
-                                   (_____)--------------------------------(_____)\s
-                    ==============================================================================
-                                                  Let’s Get Saucy!
-                                                    1- Mayo
-                                                    2- Mustard
-                                                    3- Ketchup
-                                                    4- Ranch
-                                                    5- Thousand Islands
-                                                    6- Vinaigrette
-                                                    7- Add Extra
-                                                    0- Done Choosing Sauces
-                                         (Separate By Comma, If Choosing Multiple)""");
-            util.printCentered("Pick Your Perfect Drizzle:\s", 80);
+                        \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+                        _____                                  _____\s
+                       ( ___ )--------------------------------( ___ )
+                        |   |                                  |   |\s
+                        |   |  _____  ___  _   _ _____  _____  |   |\s
+                        |   | /  ___|/ _ \\| | | /  __ \\|  ___| |   |\s
+                        |   | \\ `--./ /_\\ \\ | | | /  \\/| |__   |   |\s
+                        |   |  `--. \\  _  | | | | |    |  __|  |   |\s
+                        |   | /\\__/ / | | | |_| | \\__/\\| |___  |   |\s
+                        |   | \\____/\\_| |_/\\___/ \\____/\\____/  |   |\s
+                        |___|                                  |___|\s
+                       (_____)--------------------------------(_____)\s
+                    ====================================================
+                                     Let’s Get Saucy!
+                                          1- Mayo
+                                          2- Mustard
+                                          3- Ketchup
+                                          4- Ranch
+                                          5- Thousand Islands
+                                          6- Vinaigrette
+                                          7- Add Extra
+                                          0- Done Choosing Sauces
+                           (Separate By Comma, If Choosing Multiple)""");
+            util.printCentered("Pick Your Perfect Drizzle:\s", 50);
             String inputLine = input.nextLine();
             String[] choices = inputLine.split("\\s*,\\s*");
 
@@ -63,14 +64,12 @@ public class Sauce implements DisplayScreens {
                 if (!selecting) break;
             }
         }
-        System.out.println("Sauces Added! Returning To Main Customization...");
     }
 
         private void addSauce (String sauceName){
             String size = sandwich.getSandoSize();
             double price = getPriceBySize(size);
             sandwich.addTopping(new NonPremiumTopping(sauceName, size, true, price));
-            System.out.println(sauceName + " Added To Your Sando.");
         }
         private double getPriceBySize (String size){
             return 0.0;

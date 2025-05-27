@@ -19,6 +19,7 @@ public class Checkout implements DisplayScreens {
         boolean run = true;
         while (run) {
             String menu = """
+                            \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
                             _____                                                      _____\s
                            ( ___ )----------------------------------------------------( ___ )
                             |   |                                                      |   |\s

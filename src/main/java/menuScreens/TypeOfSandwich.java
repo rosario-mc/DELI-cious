@@ -22,23 +22,24 @@ public class TypeOfSandwich implements DisplayScreens {
         boolean run = true;
         while (run) {
             String menu = """
-                                     _____                                  _____\s
-                                    ( ___ )--------------------------------( ___ )
-                                     |   |                                  |   |\s
-                                     |   |  _____  ___   _   _______ _____  |   |\s
-                                     |   | /  ___|/ _ \\ | \\ | |  _  \\  _  | |   |\s
-                                     |   | \\ `--./ /_\\ \\|  \\| | | | | | | | |   |\s
-                                     |   |  `--. \\  _  || . ` | | | | | | | |   |\s
-                                     |   | /\\__/ / | | || |\\  | |/ /\\ \\_/ / |   |\s
-                                     |   | \\____/\\_| |_/\\_| \\_/___/  \\___/  |   |\s
-                                     |___|                                  |___|\s
-                                    (_____)--------------------------------(_____)\s
-                    ==============================================================================
-                                     Let’s get this flavor party started! What sounds good?
-                                                 1- Signature Sandos
-                                                 2- Build My Own Sando
-                                                 0- Back
-                                                Your Choice:\s""";
+                         \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+                         _____                                  _____\s
+                        ( ___ )--------------------------------( ___ )
+                         |   |                                  |   |\s
+                         |   |  _____  ___   _   _______ _____  |   |\s
+                         |   | /  ___|/ _ \\ | \\ | |  _  \\  _  | |   |\s
+                         |   | \\ `--./ /_\\ \\|  \\| | | | | | | | |   |\s
+                         |   |  `--. \\  _  || . ` | | | | | | | |   |\s
+                         |   | /\\__/ / | | || |\\  | |/ /\\ \\_/ / |   |\s
+                         |   | \\____/\\_| |_/\\_| \\_/___/  \\___/  |   |\s
+                         |___|                                  |___|\s
+                        (_____)--------------------------------(_____)\s
+                    ========================================================
+                     Let’s get this flavor party started! What sounds good?
+                                      1- Signature Sandos
+                                      2- Build My Own Sando
+                                      0- Back
+                                      Your Choice:\s""";
             System.out.print(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {

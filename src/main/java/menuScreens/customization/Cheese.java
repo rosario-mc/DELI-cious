@@ -19,26 +19,27 @@ public class Cheese implements DisplayScreens {
         boolean run = true;
         while (run) {
             String menu = """
-                                _____                                         _____\s
-                               ( ___ )---------------------------------------( ___ )
-                                |   |                                         |   |\s
-                                |   |  _____  _   _  _____ _____ _____ _____  |   |\s
-                                |   | /  __ \\| | | ||  ___|  ___/  ___|  ___| |   |\s
-                                |   | | /  \\/| |_| || |__ | |__ \\ `--.| |__   |   |\s
-                                |   | | |    |  _  ||  __||  __| `--. \\  __|  |   |\s
-                                |   | | \\__/\\| | | || |___| |___/\\__/ / |___  |   |\s
-                                |   |  \\____/\\_| |_/\\____/\\____/\\____/\\____/  |   |\s
-                                |___|                                         |___|\s
-                               (_____)---------------------------------------(_____)\s
-                    ==============================================================================
-                                             Melt It, Layer It, Love It!
-                                                   1- American
-                                                   2- Provolone
-                                                   3- Cheddar
-                                                   4- Swiss
-                                                   5- Add Extra
-                                                   0- Done / Back
-                                              Choose Your Cheese!:\s""";
+                    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+                        _____                                         _____\s
+                       ( ___ )---------------------------------------( ___ )
+                        |   |                                         |   |\s
+                        |   |  _____  _   _  _____ _____ _____ _____  |   |\s
+                        |   | /  __ \\| | | ||  ___|  ___/  ___|  ___| |   |\s
+                        |   | | /  \\/| |_| || |__ | |__ \\ `--.| |__   |   |\s
+                        |   | | |    |  _  ||  __||  __| `--. \\  __|  |   |\s
+                        |   | | \\__/\\| | | || |___| |___/\\__/ / |___  |   |\s
+                        |   |  \\____/\\_| |_/\\____/\\____/\\____/\\____/  |   |\s
+                        |___|                                         |___|\s
+                       (_____)---------------------------------------(_____)\s
+                    ===========================================================
+                                     Melt It, Layer It, Love It!
+                                          1- American
+                                          2- Provolone
+                                          3- Cheddar
+                                          4- Swiss
+                                          5- Add Extra
+                                          0- Done / Back
+                                     Choose Your Cheese:\s""";
             System.out.print(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
@@ -46,7 +47,7 @@ public class Cheese implements DisplayScreens {
                 case "2", "PROVOLONE" -> addCheese("Provolone");
                 case "3", "CHEDDAR" -> addCheese("Cheddar");
                 case "4", "SWISS" -> addCheese("Swiss");
-                case "5", "ADD EXTRA", "EXTRA" -> addCheese("Extra Cheese");
+                case "5", "ADD EXTRA", "EXTRA" -> sandwich.setHasExtraCheese(true);
                 case "0", "BACK" -> run = false;
                 default -> System.out.println("Invalid Option. Please Try Again..");
             }
@@ -57,7 +58,6 @@ public class Cheese implements DisplayScreens {
         String size = sandwich.getSandoSize();
         double price = getPriceBySize(size);
         sandwich.addTopping(new PremiumTopping(cheeseName, size, true, price));
-        System.out.println(cheeseName + " Cheese Added To Your Sando.");
     }
 
     private double getPriceBySize(String size) {

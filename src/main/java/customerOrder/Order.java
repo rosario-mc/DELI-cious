@@ -12,29 +12,27 @@ public class Order {
     private String orderName;
     private String orderID;
     private String orderDate = LocalDateTime.now().toString();
-    private List<Sandwich> sandwiches = new ArrayList<>();
-    private List<Drink> drinks = new ArrayList<>();
-    private List<Chip> chips = new ArrayList<>();
+    private List<Sandwich> sandwiches;
+    private List<Drink> drinks;
+    private List<Chip> chips;
     private double totalPrice;
 
-    public Order(String orderName, String orderID, String orderDate, List<Sandwich> sandwiches, List<Drink> drinks, List<Chip> chips, double totalPrice) {
+    public Order(String orderName, String orderID, String orderDate, List<Sandwich> sandwiches, List<Drink> drinks, List<Chip> chips) {
         this.orderName = orderName;
         this.orderID = orderID;
         this.orderDate = orderDate;
-        this.sandwiches = sandwiches;
-        this.drinks = drinks;
-        this.chips = chips;
-        this.totalPrice = totalPrice;
+        this.sandwiches = sandwiches = new ArrayList<>();
+        this.drinks = drinks = new ArrayList<>();
+        this.chips = chips = new ArrayList<>();
     }
 
     public Order() {
-        this.orderName = orderName;
-        this.orderID = orderID;
-        this.orderDate = orderDate;
-        this.sandwiches = sandwiches;
-        this.drinks = drinks;
-        this.chips = chips;
-        this.totalPrice = totalPrice;
+        this.orderName = "";
+        this.orderID = "";
+        this.orderDate = LocalDateTime.now().toString();
+        this.sandwiches = new ArrayList<>();
+        this.drinks = new ArrayList<>();
+        this.chips = new ArrayList<>();
     }
 
     public String getOrderName() {
@@ -95,6 +93,14 @@ public class Order {
 
     public void addSandwich(Sandwich sandwich) {
         sandwiches.add(sandwich);
+    }
+
+    public void addDrink(Drink drink) {
+        drinks.add(drink);
+    }
+
+    public void addChip(Chip chip) {
+        chips.add(chip);
     }
 
 

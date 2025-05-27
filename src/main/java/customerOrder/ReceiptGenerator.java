@@ -13,15 +13,15 @@ public class ReceiptGenerator {
 
     public String generateReceipt(Order order) {
         StringBuilder sb = new StringBuilder();
-        sb.append("ORDER NAME: ").append(order.getOrderName()).append("\n");
-        sb.append("ORDER ID: ").append(order.getOrderID()).append("\n");
-        sb.append("ORDER DATE: ").append(order.getOrderDate()).append("\n");
+        sb.append("Order Name: ").append(order.getOrderName()).append("\n");
+        sb.append("Order ID: ").append(order.getOrderID()).append("\n");
+        sb.append("Order Date: ").append(order.getOrderDate()).append("\n");
 
-        appendItemList("SANDWICHES", order.getSandwiches(), sb);
-        appendItemList("DRINKS", order.getDrinks(), sb);
-        appendItemList("CHIPS", order.getChips(), sb);
+        appendItemList("Sandwiches", order.getSandwiches(), sb);
+        appendItemList("Drinks", order.getDrinks(), sb);
+        appendItemList("Chips", order.getChips(), sb);
 
-        sb.append("TOTAL: ").append(order.getTotalPrice()).append("\n");
+        sb.append("Total: ").append(order.getTotalPrice()).append("\n");
         return sb.toString();
     }
 
@@ -41,7 +41,7 @@ public class ReceiptGenerator {
         try (PrintWriter writer = new PrintWriter(receiptFile)) {
             writer.println(receiptText);
         } catch (IOException e) {
-            System.out.println("AN ERROR OCCURRED WHILE SAVING RECEIPT: " + e.getMessage());
+            System.out.println("An Error Occurred While Saving Receipt: " + e.getMessage());
         }
     }
 

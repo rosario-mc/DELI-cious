@@ -9,7 +9,9 @@ public class Sandwich implements CustomizableItem {
     private boolean toasted;
     private List<Topping> toppings = new ArrayList<>();
     private List<String> sauces;
-    private double basePrice;  // <-- Add this
+    private double basePrice;
+    private boolean hasExtraMeat;
+    private boolean hasExtraCheese;
 
     public Sandwich(String breadType, String sandoSize, boolean toasted, List<Topping> toppings, List<String> sauces) {
         this.breadType = breadType;
@@ -85,13 +87,59 @@ public class Sandwich implements CustomizableItem {
         this.basePrice = basePrice;
     }
 
+    public void setHasExtraMeat(boolean hasExtraMeat) {
+        this.hasExtraMeat = hasExtraMeat;
+    }
+
+    public void setHasExtraCheese(boolean hasExtraCheese) {
+        this.hasExtraCheese = hasExtraCheese;
+    }
+
+    private double getPriceBySize(String size) {
+        return switch (size) {
+            case "4" -> 5.50;
+            case "8" -> 7.00;
+            case "12" -> 8.50;
+            default -> 0.0;
+        };
+    }
+
+    private double getExtraMeatPriceBySize(String size) {
+        return switch (size) {
+            case "4" -> 0.50;
+            case "8" -> 1.00;
+            case "12" -> 1.50;
+            default -> 0.0;
+        };
+    }
+
+    private double getExtraCheesePriceBySize(String size) {
+        return switch (size) {
+            case "4" -> 0.30;
+            case "8" -> 0.60;
+            case "12" -> 1.50;
+            default -> 0.0;
+        };
+    }
+
+    private double calculateToppingsPrice() {
+        return toppings.stream().mapToDouble(Topping::getPrice).sum();
+    }
+
     @Override
     public double calculatePrice() {
-        double toppingsTotal = 0.0;
-        for (Topping topping : toppings) {
-            toppingsTotal += topping.getPrice();
+        double total = getPriceBySize(sandoSize);
+        total += calculateToppingsPrice();
+
+        if (hasExtraMeat) {
+            total += getExtraMeatPriceBySize(sandoSize);
         }
-        return basePrice + toppingsTotal;
+
+        if (hasExtraCheese) {
+            total += getExtraCheesePriceBySize(sandoSize);
+        }
+
+        return total;
     }
 
     @Override
@@ -109,15 +157,26 @@ public class Sandwich implements CustomizableItem {
                 toppingsList.append("    • ").append(topping.toString()).append("\n");
             }
         }
+        if (hasExtraMeat) {
+            toppingsList.append("    • Extra Meat ($")
+                    .append(String.format("%.2f", getExtraMeatPriceBySize(sandoSize)))
+                    .append(")\n");
+        }
+        if (hasExtraCheese) {
+            toppingsList.append("    • Extra Cheese ($")
+                    .append(String.format("%.2f", getExtraCheesePriceBySize(sandoSize)))
+                    .append(")\n");
+        }
 
         return """
-       Sando: Build My Own Sando
-         - Bread: %s
-         - Size: %s
-         - Toppings:%s
-         - Toasted: %s
-         - Price: $%.2f
-       """.formatted(
+                Sando: Build My Own Sando
+                  - Bread: %s
+                  - Size: %s
+                  - Toppings:
+                   %s
+                  - Toasted: %s
+                  - Price: $%.2f
+                """.formatted(
                 breadType,
                 sandoSize,
                 toppingsList.toString().trim(),

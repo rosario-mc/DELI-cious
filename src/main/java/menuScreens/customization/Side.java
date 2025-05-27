@@ -19,28 +19,35 @@ public class Side implements DisplayScreens {
         boolean run = true;
         while (run) {
             String menu = """
-                                     _____                                 _____\s
-                                    ( ___ )-------------------------------( ___ )
-                                     |   |                                 |   |\s
-                                     |   |  _____ ___________ _____ _____  |   |\s
-                                     |   | /  ___|_   _|  _  \\  ___/  ___| |   |\s
-                                     |   | \\ `--.  | | | | | | |__ \\ `--.  |   |\s
-                                     |   |  `--. \\ | | | | | |  __| `--. \\ |   |\s
-                                     |   | /\\__/ /_| |_| |/ /| |___/\\__/ / |   |\s
-                                     |   | \\____/ \\___/|___/ \\____/\\____/  |   |\s
-                                     |___|                                 |___|\s
-                                    (_____)-------------------------------(_____)\s
-                    ==============================================================================
-                                            Give Your Sando Some Backup!
-                                                    1- Au Jus
-                                                    2- Sauce
-                                                    0- Back
-                                                Choose Your Sides:\s""";
+                    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+                         _____                                 _____\s
+                        ( ___ )-------------------------------( ___ )
+                         |   |                                 |   |\s
+                         |   |  _____ ___________ _____ _____  |   |\s
+                         |   | /  ___|_   _|  _  \\  ___/  ___| |   |\s
+                         |   | \\ `--.  | | | | | | |__ \\ `--.  |   |\s
+                         |   |  `--. \\ | | | | | |  __| `--. \\ |   |\s
+                         |   | /\\__/ /_| |_| |/ /| |___/\\__/ / |   |\s
+                         |   | \\____/ \\___/|___/ \\____/\\____/  |   |\s
+                         |___|                                 |___|\s
+                        (_____)-------------------------------(_____)\s
+                    ====================================================
+                                Give Your Sando Some Backup!
+                                        1- Au Jus
+                                        2- Sauce
+                                        0- Back
+                                   Choose Your Sides:\s""";
             System.out.print(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
-                case "1", "AU JUS" -> addSides("Au Jus");
-                case "2", "SAUCE" -> addSides("Sauce");
+                case "1", "AU JUS" -> {
+                    addSides("Au Jus");
+                    run = false;
+                }
+                case "2", "SAUCE" -> {
+                    addSides("Sauce");
+                    run = false;
+                }
                 case "0", "BACK" -> run = false;
                 default -> System.out.println("Invalid Option. Please Try Again.");
             }
@@ -51,7 +58,6 @@ public class Side implements DisplayScreens {
         String size = sandwich.getSandoSize();
         double price = getPriceBySize(size);
         sandwich.addTopping(new NonPremiumTopping(sideName, size, true, price));
-        System.out.println(sideName + " Added To Your Order.");
     }
     private double getPriceBySize(String size) {
         return 0.0;

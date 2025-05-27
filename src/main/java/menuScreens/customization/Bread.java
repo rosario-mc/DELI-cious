@@ -19,42 +19,43 @@ public class Bread implements DisplayScreens {
         boolean run = true;
         while (run) {
             String menu = """
-                                      _____                                 _____\s
-                                     ( ___ )-------------------------------( ___ )
-                                      |   |                                 |   |\s
-                                      |   | ____________ _____  ___ ______  |   |\s
-                                      |   | | ___ \\ ___ \\  ___|/ _ \\|  _  \\ |   |\s
-                                      |   | | |_/ / |_/ / |__ / /_\\ \\ | | | |   |\s
-                                      |   | | ___ \\    /|  __||  _  | | | | |   |\s
-                                      |   | | |_/ / |\\ \\| |___| | | | |/ /  |   |\s
-                                      |   | \\____/\\_| \\_\\____/\\_| |_/___/   |   |\s
-                                      |___|                                 |___|\s
-                                     (_____)-------------------------------(_____)\s
-                    ==============================================================================
-                                       Every Masterpiece Starts With A Solid Base!
-                                                      1- White
-                                                      2- Wheat
-                                                      3- Rye
-                                                      4- Wrap
-                                                      0- Back
-                                                Pick Your Bread:\s""";
+                    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+                        _____                                 _____\s
+                       ( ___ )-------------------------------( ___ )
+                        |   |                                 |   |\s
+                        |   | ____________ _____  ___ ______  |   |\s
+                        |   | | ___ \\ ___ \\  ___|/ _ \\|  _  \\ |   |\s
+                        |   | | |_/ / |_/ / |__ / /_\\ \\ | | | |   |\s
+                        |   | | ___ \\    /|  __||  _  | | | | |   |\s
+                        |   | | |_/ / |\\ \\| |___| | | | |/ /  |   |\s
+                        |   | \\____/\\_| \\_\\____/\\_| |_/___/   |   |\s
+                        |___|                                 |___|\s
+                       (_____)-------------------------------(_____)\s
+                    ===================================================
+                          Every Masterpiece Starts With A Solid Base!
+                                       1- White
+                                       2- Wheat
+                                       3- Rye
+                                       4- Wrap
+                                       0- Back
+                                 Pick Your Bread:\s""";
             System.out.print(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
                 case "1", "WHITE" -> {
-                    addBread("White");
+                    sandwich.setBreadType("White");
                     run = false;
                 }
                 case "2", "WHEAT" -> {
-                   addBread("Wheat");
+                    sandwich.setBreadType("Wheat");
                     run = false;
                 }
                 case "3", "RYE" -> {
-                   addBread("Rye");
+                    sandwich.setBreadType("Rye");
                     run = false;
                 }
                 case "4", "WRAP" -> {
-                   addBread("Wrap");
+                    sandwich.setBreadType("Wrap");
                     run = false;
                 }
                 case "0", "BACK" -> run = false;

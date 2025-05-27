@@ -20,32 +20,33 @@ public class Veggies implements DisplayScreens {
         boolean selecting = true;
         while (selecting) {
             System.out.println("""
-                                _____                                             _____\s
-                               ( ___ )-------------------------------------------( ___ )
-                                |   |                                             |   |\s
-                                |   |  _   _ _____ _____ _____ _____ _____ _____  |   |\s
-                                |   | | | | |  ___|  __ \\  __ \\_   _|  ___/  ___| |   |\s
-                                |   | | | | | |__ | |  \\/ |  \\/ | | | |__ \\ `--.  |   |\s
-                                |   | | | | |  __|| | __| | __  | | |  __| `--. \\ |   |\s
-                                |   | \\ \\_/ / |___| |_\\ \\ |_\\ \\_| |_| |___/\\__/ / |   |\s
-                                |   |  \\___/\\____/ \\____/\\____/\\___/\\____/\\____/  |   |\s
-                                |___|                                             |___|\s
-                               (_____)-------------------------------------------(_____)\s
-                    ==============================================================================
-                                             Pick Your Fresh & Crispy Crew:
-                                                   1- Lettuce
-                                                   2- Peppers
-                                                   3- Onions
-                                                   4- Tomatoes
-                                                   5- Jalapeños
-                                                   6- Cucumbers
-                                                   7- Pickles
-                                                   8- Guacamole
-                                                   9- Mushrooms
-                                                   10- Add Extra Veggies
-                                                   0- Done Choosing Veggies
-                                          (Separate By Comma, If Choosing Multiple)""");
-            util.printCentered("Your Green Selections:\s", 80);
+                         \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+                         _____                                             _____\s
+                        ( ___ )-------------------------------------------( ___ )
+                         |   |                                             |   |\s
+                         |   |  _   _ _____ _____ _____ _____ _____ _____  |   |\s
+                         |   | | | | |  ___|  __ \\  __ \\_   _|  ___/  ___| |   |\s
+                         |   | | | | | |__ | |  \\/ |  \\/ | | | |__ \\ `--.  |   |\s
+                         |   | | | | |  __|| | __| | __  | | |  __| `--. \\ |   |\s
+                         |   | \\ \\_/ / |___| |_\\ \\ |_\\ \\_| |_| |___/\\__/ / |   |\s
+                         |   |  \\___/\\____/ \\____/\\____/\\___/\\____/\\____/  |   |\s
+                         |___|                                             |___|\s
+                        (_____)-------------------------------------------(_____)\s
+                    =================================================================
+                                      Pick Your Fresh & Crispy Crew:
+                                            1- Lettuce
+                                            2- Peppers
+                                            3- Onions
+                                            4- Tomatoes
+                                            5- Jalapeños
+                                            6- Cucumbers
+                                            7- Pickles
+                                            8- Guacamole
+                                            9- Mushrooms
+                                            10- Add Extra Veggies
+                                            0- Done Choosing Veggies
+                               (Separate By Comma, If Choosing Multiple)""");
+            util.printCentered("Your Green Selections:\s", 60);
             String inputLine = input.nextLine();
             String[] choices = inputLine.split("\\s*,\\s*");
 
@@ -69,14 +70,12 @@ public class Veggies implements DisplayScreens {
                 if (!selecting) break;
             }
         }
-        System.out.println("Veggies Added! Returning To Main Customization...");
     }
 
     private void addVeggies(String vegName) {
         String size = sandwich.getSandoSize();
         double price = getPriceBySize(size);
         sandwich.addTopping(new NonPremiumTopping(vegName, size, false, price));
-        System.out.println(vegName + " Added To Your Sando.");
     }
 
     private double getPriceBySize(String size) {

@@ -18,46 +18,30 @@ public class OrderScreen implements DisplayScreens {
     }
 
     public void getInfo() {
-        boolean inputtingInfo = true;
-        while (inputtingInfo) {
-            String menu = """
-                                          _____                            _____\s
-                                         ( ___ )--------------------------( ___ )
-                                          |   |                            |   |\s
-                                          |   |  _____ _   _ ______ _____  |   |\s
-                                          |   | |_   _| \\ | ||  ___|  _  | |   |\s
-                                          |   |   | | |  \\| || |_  | | | | |   |\s
-                                          |   |   | | | . ` ||  _| | | | | |   |\s
-                                          |   |  _| |_| |\\  || |   \\ \\_/ / |   |\s
-                                          |   |  \\___/\\_| \\_/\\_|    \\___/  |   |\s
-                                          |___|                            |___|\s
-                                         (_____)--------------------------(_____)\s
-                    ==============================================================================
-                                                   Let's Get Started!
-                                                    1 -Enter Your Name
-                                                    2- Continue To Order
-                                                    3- Cancel
-                                                    Your Selection:\s""";
-            System.out.print(menu);
-            String choice = input.nextLine().toUpperCase();
-            switch (choice) {
-                case "1", "ENTER YOUR NAME" -> {
-                    util.printCentered("Please enter your name: ", 80);
-                    String name = input.nextLine();
-                    currentOrder.setOrderName(name);
-                    util.printCentered("Thanks, " + name + "!\n", 83);
-                }
-                case "2", "CONTINUE TO ORDER", "ORDER" -> {
-                    display();
-                    inputtingInfo = false;
-                }
-                case "3", "CANCEL" -> {
-                    System.out.println("Order Canceled. See You Next Time!");
-                    inputtingInfo = false;
-                }
-                default -> System.out.println("Invalid Option. Please Try Again.");
-            }
-        }
+        String menu = """
+                    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+                    _____                            _____\s
+                   ( ___ )--------------------------( ___ )
+                    |   |                            |   |\s
+                    |   |  _____ _   _ ______ _____  |   |\s
+                    |   | |_   _| \\ | ||  ___|  _  | |   |\s
+                    |   |   | | |  \\| || |_  | | | | |   |\s
+                    |   |   | | | . ` ||  _| | | | | |   |\s
+                    |   |  _| |_| |\\  || |   \\ \\_/ / |   |\s
+                    |   |  \\___/\\_| \\_/\\_|    \\___/  |   |\s
+                    |___|                            |___|\s
+                   (_____)--------------------------(_____)\s
+                ===============================================
+                              Let's Get Started!
+                         Please Enter Your Name:\s""";
+        System.out.print(menu);
+        String name = input.nextLine();
+        currentOrder.setOrderName(name);
+        util.printCentered("Thanks, " + name + "!\n", 50);
+        util.printCentered("Let 's Continue To Building Your Order!\n", 50);
+        util.printCentered("Press Enter To Continue!\n", 50);
+        input.nextLine();
+        display();
     }
 
 
@@ -66,25 +50,26 @@ public class OrderScreen implements DisplayScreens {
         boolean run = true;
         while (run) {
             String menu = """
-                                     _____                                 _____\s
-                                    ( ___ )-------------------------------( ___ )
-                                     |   |                                 |   |\s
-                                     |   |  _________________ ___________  |   |\s
-                                     |   | |  _  | ___ \\  _  \\  ___| ___ \\ |   |\s
-                                     |   | | | | | |_/ / | | | |__ | |_/ / |   |\s
-                                     |   | | | | |    /| | | |  __||    /  |   |\s
-                                     |   | \\ \\_/ / |\\ \\| |/ /| |___| |\\ \\  |   |\s
-                                     |   |  \\___/\\_| \\_|___/ \\____/\\_| \\_| |   |\s
-                                     |___|                                 |___|\s
-                                    (_____)-------------------------------(_____)\s
-                    ==============================================================================
-                                      What would you like to add to your feast?
-                                                   1- Add Sando
-                                                   2- Add Drink
-                                                   3- Add Chips
-                                                   4- Checkout
-                                                   0- Cancel Order
-                                                   Your Choice:\s""";
+                         \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+                         _____                                 _____\s
+                        ( ___ )-------------------------------( ___ )
+                         |   |                                 |   |\s
+                         |   |  _________________ ___________  |   |\s
+                         |   | |  _  | ___ \\  _  \\  ___| ___ \\ |   |\s
+                         |   | | | | | |_/ / | | | |__ | |_/ / |   |\s
+                         |   | | | | |    /| | | |  __||    /  |   |\s
+                         |   | \\ \\_/ / |\\ \\| |/ /| |___| |\\ \\  |   |\s
+                         |   |  \\___/\\_| \\_|___/ \\____/\\_| \\_| |   |\s
+                         |___|                                 |___|\s
+                        (_____)-------------------------------(_____)\s
+                    ======================================================
+                          What would you like to add to your feast?
+                                       1- Add Sando
+                                       2- Add Drink
+                                       3- Add Chips
+                                       4- Checkout
+                                       0- Cancel Order
+                                      Your Choice:\s""";
             System.out.print(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
@@ -96,5 +81,9 @@ public class OrderScreen implements DisplayScreens {
                 default -> System.out.println("Invalid option. Please try again.");
             }
         }
+    }
+
+    public static void clearScreen() {
+        System.out.print("\n".repeat(50));
     }
 }
