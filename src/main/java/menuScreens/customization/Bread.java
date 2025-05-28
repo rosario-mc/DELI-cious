@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class Bread implements DisplayScreens {
     static Scanner input = new Scanner(System.in);
     private Sandwich sandwich;
+    Utils util;
 
     public Bread(Sandwich sandwich) {
         this.sandwich = sandwich;
@@ -61,7 +62,7 @@ public class Bread implements DisplayScreens {
                     run = false;
                 }
                 case "0", "BACK" -> run = false;
-                default -> System.out.println("Invalid Option. Please Try Again.");
+                default -> util.printCentered("Invalid Option. Please Try Again.\n", 80);
             }
         }
     }
@@ -70,7 +71,7 @@ public class Bread implements DisplayScreens {
         String size = sandwich.getSandoSize();
         double price = getPriceBySize(size);
         sandwich.addTopping(new PremiumTopping(breadName, size, true, price));
-        System.out.println(breadName + " Bread Added To Your Sando!\n");
+        util.printCentered(breadName + " Bread Added To Your Sando!\n", 80);
     }
 
     private double getPriceBySize(String size) {

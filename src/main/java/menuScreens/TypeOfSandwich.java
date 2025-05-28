@@ -64,7 +64,7 @@ public class TypeOfSandwich implements DisplayScreens {
                     }
                 }
                 case "0", "BACK" -> run = false;
-                default -> System.out.println("Invalid Option. Please Try Again.");
+                default -> util.printCentered("Invalid Option. Please Try Again.\n", 80);
             }
         }
     }

@@ -67,7 +67,7 @@ public class Cheese implements DisplayScreens {
                     run = false;
                 }
                 case "0", "BACK" -> run = false;
-                default -> util.printCentered("Invalid option. Please try again.", 80);
+                default -> util.printCentered("Invalid Option. Please Try Again.\n", 80);
             }
         }
     }

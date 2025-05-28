@@ -1,0 +1,9 @@
+Order Name: n
+Order ID: BCFA9BDF
+Order Date: 05/28/2025 01:13 PM
+Sandwiches:
+Drinks:
+  - House Made Lemonade ($3.00)
+Chips:
+Total: 3.0
+

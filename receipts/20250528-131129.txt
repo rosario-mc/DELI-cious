@@ -1,0 +1,10 @@
+Order Name: ME
+Order ID: 9F38BA43
+Order Date: 05/28/2025 01:11 PM
+Sandwiches:
+Drinks:
+  - House Made Lemonade ($2.00)
+Chips:
+  - Hot Cheetos ($1.50)
+Total: 3.5
+

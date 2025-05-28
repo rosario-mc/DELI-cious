@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class SandwichCustomization {
     static Scanner input = new Scanner(System.in);
     private Sandwich sandwich;
+    Utils util;
 
     public SandwichCustomization() {
         this.sandwich = null;
@@ -61,7 +62,7 @@ public class SandwichCustomization {
                 case "3", "TOPPINGS" -> new Topping(sandwich).display();
                 case "4", "TOAST MY SANDO", "TOAST" -> new Toast(sandwich).display();
                 case "0", "BACK" -> run = false;
-                default -> System.out.println("Invalid Option. Please Try Again.");
+                default -> util.printCentered("Invalid Option. Please Try Again.\n", 80);
             }
         }
         return sandwich;

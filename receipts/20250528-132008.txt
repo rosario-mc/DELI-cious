@@ -1,0 +1,9 @@
+Order Name: g
+Order ID: FA00B7F5
+Order Date: 05/28/2025 01:20 PM
+Sandwiches:
+Drinks:
+  - House Made Lemonade ($2.00)
+Chips:
+Total: 2.0
+

@@ -1,0 +1,9 @@
+Order Name: ew
+Order ID: 2CA6AC7C
+Order Date: 05/28/2025 01:28 PM
+Sandwiches:
+Drinks:
+Chips:
+  - Hot Cheetos ($1.50)
+Total: 1.5
+

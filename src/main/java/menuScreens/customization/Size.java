@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class Size implements DisplayScreens {
     static Scanner input = new Scanner(System.in);
     private Sandwich sandwich;
+    Utils util;
 
     public Size(Sandwich sandwich) {
         this.sandwich = sandwich;
@@ -58,7 +59,7 @@ public class Size implements DisplayScreens {
                     run = false;
                 }
                 case "0", "BACK" -> run = false;
-                default -> System.out.println("Invalid option. Please try again.");
+                default -> util.printCentered("Invalid Option. Please Try Again.\n", 80);
             }
         }
     }

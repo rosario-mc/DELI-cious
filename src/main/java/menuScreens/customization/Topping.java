@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class Topping implements DisplayScreens {
     static Scanner input = new Scanner(System.in);
     private Sandwich sandwich;
+    Utils util;
 
     private Meat meat;
     private Cheese cheese;
@@ -61,7 +62,7 @@ public class Topping implements DisplayScreens {
                 case "4", "SAUCES" -> sauce.display();
                 case "5", "SIDES" -> side.display();
                 case "0", "BACK" -> run = false;
-                default -> System.out.println("Invalid Option. Please Try Again.");
+                default -> util.printCentered("Invalid Option. Please Try Again.\n", 80);
             }
         }
     }

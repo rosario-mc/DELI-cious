@@ -1,6 +1,7 @@
 package menuScreens;
 
 import customerOrder.Order;
+import menuScreens.customization.Utils;
 import sandwichComponents.Chip;
 
 import java.util.Scanner;
@@ -9,6 +10,7 @@ import java.util.List;
 public class ChipScreen implements DisplayScreens {
     static Scanner input = new Scanner(System.in);
     private Order order;
+    Utils util;
 
     public ChipScreen(Order order) {
         this.order = order;
@@ -63,7 +65,7 @@ public class ChipScreen implements DisplayScreens {
                     run = false;
                 }
                 case "0", "BACK" -> run = false;
-                default -> System.out.println("\nInvalid Option. Please Try Again.\n");
+                default -> util.printCentered("\nInvalid Option. Please Try Again.\n", 80);
             }
         }
     }

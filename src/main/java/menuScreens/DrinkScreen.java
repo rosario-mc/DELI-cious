@@ -1,6 +1,7 @@
 package menuScreens;
 
 import customerOrder.Order;
+import menuScreens.customization.Utils;
 import sandwichComponents.Drink;
 
 import java.util.List;
@@ -10,6 +11,7 @@ public class DrinkScreen implements DisplayScreens {
     static Scanner input = new Scanner(System.in);
     private Order order;
     private String selectedDrinkName = "";
+    Utils util;
 
     public DrinkScreen(Order order) {
         this.order = order;
@@ -54,7 +56,7 @@ public class DrinkScreen implements DisplayScreens {
                     DrinkScreenSize();
                     run = false;
                 }
-                default -> System.out.println("Invalid Option. Please Try Again.");
+                default -> util.printCentered("Invalid Option. Please Try Again.\n", 80);
             }
         }
     }
@@ -100,7 +102,7 @@ public class DrinkScreen implements DisplayScreens {
                     order.addDrink(new Drink(selectedDrinkName, "LARGE"));
                     run = false;
                 }
-                default -> System.out.println("Invalid Option. Please Try Again.");
+                default -> util.printCentered("Invalid Option. Please Try Again.\n", 80);
             }
         }
     }
