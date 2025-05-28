@@ -60,7 +60,7 @@ public class Drink implements CustomizableItem {
         return getPriceBySize(size);
     }
 
-    @@Override
+    @Override
     public String toString() {
         return name + " ($" + String.format("%.2f", price) + ")";
     }

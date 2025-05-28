@@ -7,6 +7,7 @@ import sandwichComponents.Sandwich;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class Order {
     private String orderName;
@@ -19,7 +20,7 @@ public class Order {
 
     public Order(String orderName, String orderID, String orderDate, List<Sandwich> sandwiches, List<Drink> drinks, List<Chip> chips) {
         this.orderName = orderName;
-        this.orderID = orderID;
+        this.orderID = (orderID == null || orderID.isEmpty()) ? generateOrderID() : orderID;
         this.orderDate = orderDate;
         this.sandwiches = sandwiches = new ArrayList<>();
         this.drinks = drinks = new ArrayList<>();
@@ -28,7 +29,7 @@ public class Order {
 
     public Order() {
         this.orderName = "";
-        this.orderID = "";
+        this.orderID = generateOrderID();
         this.orderDate = LocalDateTime.now().toString();
         this.sandwiches = new ArrayList<>();
         this.drinks = new ArrayList<>();
@@ -117,6 +118,10 @@ public class Order {
         chips.add(chip);
     }
 
+    //UUID (Universally Unique Identifier)
+    private String generateOrderID() {
+        return UUID.randomUUID().toString().substring(0, 8).toUpperCase();
+    }
 
     public double calculateTotalPrice() {
         double total = 0.0;
