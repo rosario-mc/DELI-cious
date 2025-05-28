@@ -2,7 +2,7 @@ package sandwichComponents;
 
 import java.util.List;
 
-abstract class SignatureSando extends Sandwich{
+public class SignatureSando extends Sandwich{
     private String name;
     private String description;
     private boolean customizable;

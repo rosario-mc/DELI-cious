@@ -84,6 +84,18 @@ public class Order {
         this.chips = chips;
     }
 
+    public void clearSandwiches() {
+        sandwiches.clear();
+    }
+
+    public void clearDrinks() {
+        drinks.clear();
+    }
+
+    public void clearChips() {
+        chips.clear();
+    }
+
     public double getTotalPrice() {
         double total = 0;
 
@@ -121,14 +133,5 @@ public class Order {
     //UUID (Universally Unique Identifier)
     private String generateOrderID() {
         return UUID.randomUUID().toString().substring(0, 8).toUpperCase();
-    }
-
-    public double calculateTotalPrice() {
-        double total = 0.0;
-        for (Sandwich s : sandwiches) total += s.getPrice();
-        for (Drink d : drinks) total += d.getPrice();
-        for (Chip c : chips) total += c.getPrice();
-        this.totalPrice = total;
-        return total;
     }
 }

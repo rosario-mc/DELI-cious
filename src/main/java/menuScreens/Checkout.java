@@ -2,6 +2,9 @@ package menuScreens;
 
 import customerOrder.Order;
 import customerOrder.ReceiptGenerator;
+import menuScreens.customization.SandwichCustomization;
+import menuScreens.customization.Utils;
+import sandwichComponents.Sandwich;
 
 import java.util.Scanner;
 
@@ -9,6 +12,7 @@ public class Checkout implements DisplayScreens {
     static Scanner input = new Scanner(System.in);
     private Order order;
     private ReceiptGenerator generator = new ReceiptGenerator();
+    Utils util;
 
     public Checkout(Order order) {
         this.order = order;
@@ -19,7 +23,7 @@ public class Checkout implements DisplayScreens {
         boolean run = true;
         while (run) {
             String menu = """
-                            \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+                    ==============================================================================
                             _____                                                      _____\s
                            ( ___ )----------------------------------------------------( ___ )
                             |   |                                                      |   |\s
@@ -33,8 +37,10 @@ public class Checkout implements DisplayScreens {
                            (_____)----------------------------------------------------(_____)\s
                     ==============================================================================
                                                    Ready To Eat?
+                    
                                                   1- Review Order
                                                   2- Cancel Order
+                    
                                                    Your Choice:\s""";
             System.out.print(menu);
             String choice = input.nextLine().toUpperCase();
@@ -43,10 +49,49 @@ public class Checkout implements DisplayScreens {
                     String receiptText = generator.generateReceipt(order);
                     generator.printReceipt(order);
                     generator.saveReceiptToFile(receiptText);
+
+                    System.out.print("Is Your Order Correct? (Y/N): ");
+                    String confirm = input.nextLine().trim().toUpperCase();
+
+                    if (confirm.equals("Y")) {
+                        System.out.println("Order Confirmed! Thank You For Your Purchase! Enjoy your DELI-cious Sando!");
+                        System.exit(0);
+                    } else if (confirm.equals("N")) {
+                        System.out.println("Let's edit your order.");
+                        editOrder();
+                    } else {
+                        System.out.println("Invalid Input. Returning To Menu.");
+                    }
                 }
-                case "2", "CANCEL" -> run = false;
-                default -> System.out.println("Invalid option. Please try again.");
+                case "2", "CANCEL" -> {
+                    System.out.println("Order Cancelled.");
+                    run = false;
+                }
+                default -> util.printCentered("Invalid option. Please try again.", 80);
             }
         }
+    }
+
+    private void editOrder() {
+        if (!order.getSandwiches().isEmpty()) {
+            Sandwich currentSandwich = order.getSandwiches().get(0);
+            currentSandwich.clearToppings();
+            SandwichCustomization sandwichScreen = new SandwichCustomization(currentSandwich);
+            Sandwich updatedSandwich = sandwichScreen.display();
+            order.getSandwiches().set(0, updatedSandwich);
+        } else {
+            SandwichCustomization sandwichScreen = new SandwichCustomization();
+            Sandwich updatedSandwich = sandwichScreen.display();
+            order.addSandwich(updatedSandwich);
+        }
+
+        order.clearDrinks();
+        order.clearChips();
+
+        DrinkScreen drinkScreen = new DrinkScreen(order);
+        drinkScreen.display();
+
+        ChipScreen chipScreen = new ChipScreen(order);
+        chipScreen.display();
     }
 }

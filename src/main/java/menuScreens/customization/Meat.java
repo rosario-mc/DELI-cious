@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class Meat implements DisplayScreens {
     static Scanner input = new Scanner(System.in);
     private Sandwich sandwich;
+    Utils util;
 
     public Meat(Sandwich sandwich) {
         this.sandwich = sandwich;
@@ -19,40 +20,60 @@ public class Meat implements DisplayScreens {
         boolean run = true;
         while (run) {
             String menu = """
-                    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
-                        _____                            _____\s
-                       ( ___ )--------------------------( ___ )
-                        |   |                            |   |\s
-                        |   | ___  ___ _____  ___ _____  |   |\s
-                        |   | |  \\/  ||  ___|/ _ \\_   _| |   |\s
-                        |   | | .  . || |__ / /_\\ \\| |   |   |\s
-                        |   | | |\\/| ||  __||  _  || |   |   |\s
-                        |   | | |  | || |___| | | || |   |   |\s
-                        |   | \\_|  |_/\\____/\\_| |_/\\_/   |   |\s
-                        |___|                            |___|\s
-                       (_____)--------------------------(_____)\s
-                    ==============================================
-                                Stack The Meats Up!
-                                   1- Steak
-                                   2- Ham
-                                   3- Salami
-                                   4- Roast Beef
-                                   5- Chicken
-                                   6- Bacon
-                                   7- Add Extra
-                                   0- Done / Back
-                           Choose Your Protein Power:\s""";
+                    ==============================================================================
+                           _____                                                     _____\s
+                          ( ___ )---------------------------------------------------( ___ )
+                           |   |                                                     |   |\s
+                           |   |          ___  ___ _____  ___ _____ _____            |   |\s
+                           |   |          |  \\/  ||  ___|/ _ \\_   _/  ___|           |   |\s
+                           |   |          | .  . || |__ / /_\\ \\| | \\ `--.            |   |\s
+                           |   |          | |\\/| ||  __||  _  || |  `--. \\           |   |\s
+                           |   |          | |  | || |___| | | || | /\\__/ /           |   |\s
+                           |   |          \\_|  |_/\\____/\\_| |_/\\_/ \\____/            |   |\s
+                           |___|                                                     |___|\s
+                          (_____)---------------------------------------------------(_____)\s
+                    ==============================================================================
+                                                   Stack The Meats Up!
+                    
+                                                       1- Steak
+                                                       2- Ham
+                                                       3- Salami
+                                                       4- Roast Beef
+                                                       5- Chicken
+                                                       6- Bacon
+                                                       7- Add Extra
+                                                       0- Done / Back
+                    
+                                            Choose Your Protein Power:\s""";
             System.out.print(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
-                case "1", "STEAK" -> addMeat("Steak");
-                case "2", "HAM" -> addMeat("Ham");
-                case "3", "BACON" -> addMeat("Bacon");
-                case "4", "CHICKEN" -> addMeat("Chicken");
-                case "5", "ROAST BEEF" -> addMeat("Roast Beef");
-                case "7", "EXTRA" -> sandwich.setHasExtraMeat(true);
+                case "1", "STEAK" -> {
+                    addMeat("Steak");
+                    run = false;
+                }
+                case "2", "HAM" -> {
+                    addMeat("Ham");
+                    run = false;
+                }
+                case "3", "BACON" -> {
+                    addMeat("Bacon");
+                    run = false;
+                }
+                case "4", "CHICKEN" -> {
+                    addMeat("Chicken");
+                    run = false;
+                }
+                case "5", "ROAST BEEF" -> {
+                    addMeat("Roast Beef");
+                    run = false;
+                }
+                case "7", "EXTRA" -> {
+                    sandwich.setHasExtraMeat(true);
+                    run = false;
+                }
                 case "0", "BACK", "DONE" -> run = false;
-                default -> System.out.println("Invalid Option. Please Try Again.");
+                default -> util.printCentered("Invalid option. Please try again.", 80);
             }
         }
     }
@@ -61,7 +82,7 @@ public class Meat implements DisplayScreens {
         String size = sandwich.getSandoSize();
         double price = getPriceBySize(size);
         sandwich.addTopping(new PremiumTopping(meatName, size, true, price));
-        System.out.println(meatName + " Added To Your Sando!");
+        util.printCentered(meatName + " Added To Your Sando!\n", 80);
     }
 
     private double getPriceBySize(String size) {

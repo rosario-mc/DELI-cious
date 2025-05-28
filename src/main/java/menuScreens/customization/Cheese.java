@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class Cheese implements DisplayScreens {
     static Scanner input = new Scanner(System.in);
     private Sandwich sandwich;
+    Utils util;
 
     public Cheese(Sandwich sandwich) {
         this.sandwich = sandwich;
@@ -19,37 +20,54 @@ public class Cheese implements DisplayScreens {
         boolean run = true;
         while (run) {
             String menu = """
-                    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
-                        _____                                         _____\s
-                       ( ___ )---------------------------------------( ___ )
-                        |   |                                         |   |\s
-                        |   |  _____  _   _  _____ _____ _____ _____  |   |\s
-                        |   | /  __ \\| | | ||  ___|  ___/  ___|  ___| |   |\s
-                        |   | | /  \\/| |_| || |__ | |__ \\ `--.| |__   |   |\s
-                        |   | | |    |  _  ||  __||  __| `--. \\  __|  |   |\s
-                        |   | | \\__/\\| | | || |___| |___/\\__/ / |___  |   |\s
-                        |   |  \\____/\\_| |_/\\____/\\____/\\____/\\____/  |   |\s
-                        |___|                                         |___|\s
-                       (_____)---------------------------------------(_____)\s
-                    ===========================================================
-                                     Melt It, Layer It, Love It!
-                                          1- American
-                                          2- Provolone
-                                          3- Cheddar
-                                          4- Swiss
-                                          5- Add Extra
-                                          0- Done / Back
-                                     Choose Your Cheese:\s""";
+                    ==============================================================================
+                       _____                                                           _____\s
+                      ( ___ )---------------------------------------------------------( ___ )
+                       |   |                                                           |   |\s
+                       |   |           _____  _   _  _____ _____ _____ _____           |   |\s
+                       |   |          /  __ \\| | | ||  ___|  ___/  ___|  ___|          |   |\s
+                       |   |          | /  \\/| |_| || |__ | |__ \\ `--.| |__            |   |\s
+                       |   |          | |    |  _  ||  __||  __| `--. \\  __|           |   |\s
+                       |   |          | \\__/\\| | | || |___| |___/\\__/ / |___           |   |\s
+                       |   |           \\____/\\_| |_/\\____/\\____/\\____/\\____/           |   |\s
+                       |___|                                                           |___|\s
+                      (_____)---------------------------------------------------------(_____)\s
+                    ==============================================================================
+                                            Melt It, Layer It, Love It!
+                    
+                                                   1- American
+                                                   2- Provolone
+                                                   3- Cheddar
+                                                   4- Swiss
+                                                   5- Add Extra
+                                                   0- Done / Back
+                    
+                                            Choose Your Cheese:\s""";
             System.out.print(menu);
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
-                case "1", "AMERICAN" -> addCheese("American");
-                case "2", "PROVOLONE" -> addCheese("Provolone");
-                case "3", "CHEDDAR" -> addCheese("Cheddar");
-                case "4", "SWISS" -> addCheese("Swiss");
-                case "5", "ADD EXTRA", "EXTRA" -> sandwich.setHasExtraCheese(true);
+                case "1", "AMERICAN" -> {
+                    addCheese("American");
+                    run = false;
+                }
+                case "2", "PROVOLONE" -> {
+                    addCheese("Provolone");
+                    run = false;
+                }
+                case "3", "CHEDDAR" -> {
+                    addCheese("Cheddar");
+                    run = false;
+                }
+                case "4", "SWISS" -> {
+                    addCheese("Swiss");
+                    run = false;
+                }
+                case "5", "ADD EXTRA", "EXTRA" -> {
+                    sandwich.setHasExtraCheese(true);
+                    run = false;
+                }
                 case "0", "BACK" -> run = false;
-                default -> System.out.println("Invalid Option. Please Try Again..");
+                default -> util.printCentered("Invalid option. Please try again.", 80);
             }
         }
     }
@@ -58,7 +76,7 @@ public class Cheese implements DisplayScreens {
         String size = sandwich.getSandoSize();
         double price = getPriceBySize(size);
         sandwich.addTopping(new PremiumTopping(cheeseName, size, true, price));
-        System.out.println(cheeseName + " Cheese Added To Your Sando!");
+        util.printCentered(cheeseName + " Cheese Added To Your Sando!\n", 80);
     }
 
     private double getPriceBySize(String size) {

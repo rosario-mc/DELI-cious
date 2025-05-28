@@ -12,10 +12,13 @@ import java.util.List;
 public class ReceiptGenerator {
 
     public String generateReceipt(Order order) {
+        System.out.println("==============================================================================");
         StringBuilder sb = new StringBuilder();
         sb.append("Order Name: ").append(order.getOrderName()).append("\n");
         sb.append("Order ID: ").append(order.getOrderID()).append("\n");
-        sb.append("Order Date: ").append(order.getOrderDate()).append("\n");
+        DateTimeFormatter receiptFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm a");
+        LocalDateTime now = LocalDateTime.now();
+        sb.append("Order Date: ").append(now.format(receiptFormatter)).append("\n");
 
         appendItemList("Sandwiches", order.getSandwiches(), sb);
         appendItemList("Drinks", order.getDrinks(), sb);

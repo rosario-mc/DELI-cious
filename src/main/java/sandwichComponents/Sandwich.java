@@ -67,6 +67,10 @@ public class Sandwich implements CustomizableItem {
         toppings.add(topping);
     }
 
+    public void clearToppings(){
+        toppings.clear();
+    }
+
     public List<String> getSauces() {
         return sauces;
     }
@@ -173,7 +177,7 @@ public class Sandwich implements CustomizableItem {
                   - Bread: %s
                   - Size: %s
                   - Toppings:
-                   %s
+                    %s
                   - Toasted: %s
                   - Price: $%.2f
                 """.formatted(
