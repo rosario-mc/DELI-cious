@@ -70,6 +70,7 @@ public class Sauce implements DisplayScreens {
             String size = sandwich.getSandoSize();
             double price = getPriceBySize(size);
             sandwich.addTopping(new NonPremiumTopping(sauceName, size, true, price));
+            System.out.println(sauceName + " Added To Your Sando!");
         }
         private double getPriceBySize (String size){
             return 0.0;

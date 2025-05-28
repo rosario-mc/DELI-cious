@@ -44,9 +44,19 @@ public class TypeOfSandwich implements DisplayScreens {
             switch (choice) {
                 //case "1", "SIGNATURE SANDOS" -> bread.display();
                 case "2", "BUILD MY OWN SANDO" -> {
-                    Sandwich builtSandwich = sando.display();
-                    order.addSandwich(builtSandwich);
-                    System.out.println("Sando Added To Your Order!");
+                    boolean addingMore = true;
+                    while (addingMore) {
+                        Sandwich builtSandwich = sando.display();
+                        order.addSandwich(builtSandwich);
+                        System.out.println("Sando Added To Your Order!");
+
+                        System.out.print("One Sando Down! Hungry For Another? (Y/N): ");
+                        String response = input.nextLine().trim().toUpperCase();
+
+                        if (!response.equals("Y")) {
+                            addingMore = false;
+                        }
+                    }
                 }
                 case "0", "BACK" -> run = false;
                 default -> System.out.println("Invalid Option. Please Try Again.");

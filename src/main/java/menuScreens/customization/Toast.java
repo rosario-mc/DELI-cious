@@ -40,10 +40,12 @@ public class Toast implements DisplayScreens {
             switch (choice) {
                 case "1", "YES" -> {
                     sandwich.setToasted(true);
+                    System.out.println("Toasting Your Deli-cious Sando!");
                     run = false;
                 }
                 case "2", "NO" ->{
                     sandwich.setToasted(false);
+                    System.out.println("Wrapping Your Soft & Fresh Sando Up!");
                     run = false;
                 }
                 default -> System.out.println("Invalid Option. Please Try Again.");

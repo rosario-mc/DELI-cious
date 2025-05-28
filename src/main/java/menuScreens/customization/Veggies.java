@@ -76,6 +76,7 @@ public class Veggies implements DisplayScreens {
         String size = sandwich.getSandoSize();
         double price = getPriceBySize(size);
         sandwich.addTopping(new NonPremiumTopping(vegName, size, false, price));
+        System.out.println(vegName + " Added To Your Sando!");
     }
 
     private double getPriceBySize(String size) {
