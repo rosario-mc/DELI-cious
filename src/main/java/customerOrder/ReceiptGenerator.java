@@ -14,6 +14,9 @@ public class ReceiptGenerator {
     public String generateReceipt(Order order) {
         System.out.println("==============================================================================");
         StringBuilder sb = new StringBuilder();
+        sb.append("Give Us Feedback @ survey.DELI-ciousSandos.com");
+        sb.append("Thank You For Your Trusting Us To Make Your Sandos!");
+        sb.append("DELI-cious Sandos Receipt");
         sb.append("Order Name: ").append(order.getOrderName()).append("\n");
         sb.append("Order ID: ").append(order.getOrderID()).append("\n");
         DateTimeFormatter receiptFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm a");
@@ -24,7 +27,6 @@ public class ReceiptGenerator {
         appendItemList("Drinks", order.getDrinks(), sb);
         appendItemList("Chips", order.getChips(), sb);
 
-        sb.append("Total: ").append(order.getTotalPrice()).append("\n");
         return sb.toString();
     }
 

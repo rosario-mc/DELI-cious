@@ -3,7 +3,7 @@ package sandwichComponents;
 import java.util.ArrayList;
 import java.util.List;
 
-abstract class Topping {
+public abstract class Topping {
     String name;
     String sandoSize;
     boolean premium;

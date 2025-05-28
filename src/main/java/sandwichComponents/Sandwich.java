@@ -12,6 +12,17 @@ public class Sandwich implements CustomizableItem {
     private double basePrice;
     private boolean hasExtraMeat;
     private boolean hasExtraCheese;
+    private String name;
+
+    public Sandwich(String name, String breadType, String sandoSize, boolean toasted, List<Topping> toppings, List<String> sauces) {
+        this.name = name;
+        this.breadType = breadType;
+        this.sandoSize = sandoSize;
+        this.toasted = toasted;
+        this.toppings = toppings != null ? toppings : new ArrayList<>();
+        this.sauces = sauces != null ? sauces : new ArrayList<>();
+        this.basePrice = 0.0;
+    }
 
     public Sandwich(String breadType, String sandoSize, boolean toasted, List<Topping> toppings, List<String> sauces) {
         this.breadType = breadType;
@@ -67,7 +78,7 @@ public class Sandwich implements CustomizableItem {
         toppings.add(topping);
     }
 
-    public void clearToppings(){
+    public void clearToppings() {
         toppings.clear();
     }
 
@@ -97,6 +108,10 @@ public class Sandwich implements CustomizableItem {
 
     public void setHasExtraCheese(boolean hasExtraCheese) {
         this.hasExtraCheese = hasExtraCheese;
+    }
+
+    public String getName() {
+        return name;
     }
 
     private double getPriceBySize(String size) {
@@ -172,15 +187,18 @@ public class Sandwich implements CustomizableItem {
                     .append(")\n");
         }
 
+        String displayName = (name != null && !name.isEmpty()) ? name : "Build My Own Sando";
+
         return """
-                Sando: Build My Own Sando
+                Sando: %s
                   - Bread: %s
                   - Size: %s
                   - Toppings:
                     %s
                   - Toasted: %s
-                  - Price: $%.2f
+                Total Price: $%.2f
                 """.formatted(
+                displayName,
                 breadType,
                 sandoSize,
                 toppingsList.toString().trim(),

@@ -1,9 +1,0 @@
-Order Name: d
-Order ID: C328EDD1
-Order Date: 05/28/2025 01:21 PM
-Sandwiches:
-Drinks:
-Chips:
-  - Hot Cheetos ($1.50)
-Total: 1.5
-

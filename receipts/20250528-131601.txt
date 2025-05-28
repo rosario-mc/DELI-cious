@@ -1,9 +1,0 @@
-Order Name: l
-Order ID: D7E1D9FB
-Order Date: 05/28/2025 01:16 PM
-Sandwiches:
-Drinks:
-  - House Made Lemonade ($2.50)
-Chips:
-Total: 2.5
-

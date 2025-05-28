@@ -1,15 +1,10 @@
 package sandwichComponents;
 
-
-import menuScreens.customization.Meat;
-import menuScreens.customization.Veggies;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class BLT extends SignatureSando {
-
-    public BLT() {
+public class PhillyCheeseSteak extends SignatureSando {
+    public PhillyCheeseSteak() {
         super(
                 "White",
                 "8\"",
@@ -17,17 +12,17 @@ public class BLT extends SignatureSando {
                 createToppings(),
                 createSauces(),
                 "BLT",
-                "Bacon, Lettuce, & Tomato On White Bread With Mayo",
-                false,
+                "Steak & Cheese With Peppers On Toasted Bread",
+                true,
                 10.50
         );
     }
 
     private static List<Topping> createToppings() {
         List<Topping> toppings = new ArrayList<>();
-        toppings.add(new PremiumTopping("Bacon", "8", true, 2.00));
-        toppings.add(new NonPremiumTopping("Lettuce", "8"));
-        toppings.add(new NonPremiumTopping("Tomato", "8"));
+        toppings.add(new PremiumTopping("Steak", "8", true, 2.00));
+        toppings.add(new NonPremiumTopping("American Cheese", "8"));
+        toppings.add(new NonPremiumTopping("Peppers", "8"));
         return toppings;
     }
 
