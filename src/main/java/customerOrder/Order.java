@@ -105,28 +105,6 @@ public class Order {
         chips.clear();
     }
 
-    public double getTotalPrice() {
-        double total = 0;
-
-        for (Sandwich sandwich : sandwiches) {
-            total += sandwich.calculatePrice();
-        }
-
-        for (Drink drink : drinks) {
-            total += drink.calculatePrice();
-        }
-
-        for (Chip chip : chips) {
-            total += chip.calculatePrice();
-        }
-
-        return total;
-    }
-
-    public void setTotalPrice(double totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
     public void addSandwich(Sandwich sandwich) {
         sandwiches.add(sandwich);
     }
