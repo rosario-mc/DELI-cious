@@ -1,4 +1,5 @@
-# DELI-cious - Sandwich Shop POS System
+# DELI-cious Sandos - Sandwich Shop POS System
+![ChatGPT Image May 29, 2025, 02_28_26 PM](https://github.com/user-attachments/assets/591f162c-2e58-4ec8-9ed4-2645bbb87bde)
 
 ## Project Overview
 
