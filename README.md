@@ -11,12 +11,14 @@ This is a capstone project that demonstrates core object-oriented programming (O
 ## Features
 
 - Customers can:
-    - Order sandwiches in 4", 8", or 12" sizes
+    - Order signature sandos or build your own
+    - Choose differnt size sandos (4", 8", or 12")
     - Choose from multiple bread types
-    - Select toppings
+    - Select toppings and sides
     - Request extra toppings
     - Opt to have sandwiches toasted
     - Add chips and drinks to their order
+  
 
 - Application will:
     - Allow multi-sandwich orders
@@ -25,28 +27,40 @@ This is a capstone project that demonstrates core object-oriented programming (O
     - Save a receipt to a file
 
 ---
+## Demo
+
+Here is a quick demo of how the app works:
+
+![DELI-cious Demo](assets/demo.gif)
+
+---
 
 ## Technologies Used
+
+<details>
 
 - Java (JDK 17+)
 - IntelliJ IDEA
 - Git & GitHub
 - Markdown for documentation
-- Optional: UML diagram Mermaid Chart
+- Mermaid Chart
+
+</details>
 
 ---
 
 ## Mermaid Chart
 
-A Mermaid Chart has been created to manage classes based on project requirements. 
+Here is a screenshot of the Mermaid Class Diagram:
 
-Screenshots coming soon!
+<details>
+  <summary>📊 Click to expand Mermaid Class Diagram (Link found at bottom of diagram)</summary>
 
----
+![Mermaid Class Diagram](assets/mermaidChart.png)
 
-## Author
+https://www.mermaidchart.com/raw/4704ec49-9312-4945-9fb2-53a760bd991b?theme=dark&version=v0.1&format=svg
 
-This capstone project was created as part of the Learn to Code Program at Year Up United. The purpose is to demonstrate Java proficiency, software design skills, and project planning using GitHub.
+</details>
 
 ---
 

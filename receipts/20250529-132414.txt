@@ -1,0 +1,29 @@
+Give Us Feedback @ survey.DELI-ciousSandos.com
+Thank You For Your Trusting Us To Make Your Sandos!
+
+DELI-cious Sandos Receipt
+
+Order Name: Rosario
+Order ID: A665C3F2
+Order Date: 05/29/2025 01:24 PM
+
+Drinks:
+  - House Made Lemonade ($2.50)
+
+Chips:
+  - Hot Cheetos ($1.50)
+
+Sandwiches:
+  - Sando: Philly Cheese Steak
+      - Bread: White
+      - Size: 8
+      - Toppings:
+        • Steak ($2.00)
+        • American ($1.50)
+        • Peppers ($0.00)
+      - Toasted: No
+    *Sando Price: $10.50
+
+
+Total Price: $14.50
+

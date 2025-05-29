@@ -1,0 +1,27 @@
+Give Us Feedback @ survey.DELI-ciousSandos.com
+Thank You For Your Trusting Us To Make Your Sandos!
+
+DELI-cious Sandos Receipt
+
+Order Name: Rosario
+Order ID: CE066B59
+Order Date: 05/29/2025 01:09 PM
+
+Drinks:
+  - House Made Lemonade ($2.00)
+
+Chips:
+Sandwiches:
+  - Sando: BLT
+      - Bread: White
+      - Size: 8
+      - Toppings:
+        • Bacon ($2.00)
+        • Lettuce ($0.00)
+        • Tomato ($0.00)
+      - Toasted: No
+    *Sando Price: $9.00
+
+
+Total Price: $11.00
+
