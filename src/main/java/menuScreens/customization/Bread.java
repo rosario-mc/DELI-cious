@@ -70,7 +70,7 @@ public class Bread implements DisplayScreens {
     private void addBread(String breadName) {
         String size = sandwich.getSandoSize();
         double price = getPriceBySize(size);
-        sandwich.addTopping(new PremiumTopping(breadName, size, true, price));
+        sandwich.addTopping(new PremiumTopping(breadName, size));
         util.printCentered(breadName + " Bread Added To Your Sando!\n", 80);
     }
 

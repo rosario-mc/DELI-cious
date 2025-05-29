@@ -96,13 +96,13 @@ public class TypeOfSandwich implements DisplayScreens {
                         |___|                                                          |___|\s
                        (_____)--------------------------------------------------------(_____)
                     ==============================================================================
-                      Your sandwich journey starts here! Which mouthwatering option will you pick?
+                      Your Sandwich Journey Starts Here! Which Mouthwatering Option Will You Pick?
                     
-                                                    1- BLT
-                                                    2- Philly Cheese Steak
-                                                    0- Back
+                                                     1- BLT
+                                                     2- Philly Cheese Steak
+                                                     0- Back
                     
-                                                Your Choice:\s""";
+                                                   Your Choice:\s""";
             System.out.print(menu);
             String sandoChoice = input.nextLine().trim();
 
@@ -121,7 +121,7 @@ public class TypeOfSandwich implements DisplayScreens {
 
             if (selectedSando != null) {
 
-                util.printCentered("Would you like to customize this sandwich? (Y/N): ", 80);
+                util.printCentered("Would You Like To Customize This Sando? (Y/N): ", 80);
                 String customize = input.nextLine().trim().toUpperCase();
 
                 if (customize.equals("Y")) {

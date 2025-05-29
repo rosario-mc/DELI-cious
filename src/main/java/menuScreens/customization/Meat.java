@@ -81,7 +81,7 @@ public class Meat implements DisplayScreens {
     private void addMeat(String meatName) {
         String size = sandwich.getSandoSize();
         double price = getPriceBySize(size);
-        sandwich.addTopping(new PremiumTopping(meatName, size, true, price));
+        sandwich.addTopping(new PremiumTopping(meatName, size));
         util.printCentered(meatName + " Added To Your Sando!\n", 80);
     }
 

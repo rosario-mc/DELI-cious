@@ -74,17 +74,17 @@ public class SandwichCustomization {
         Scanner input = new Scanner(System.in);
 
         while (customizing) {
-            util.printCentered("\nCurrent Sandwich: " + sandwich.getName(), 80);
-            System.out.println("Toppings:");
+            util.printCentered("Current Sando: " + sandwich.getName() + "\n", 80);
+            util.printCentered(" Toppings:\n", 80);
             for (int i = 0; i < sandwich.getToppings().size(); i++) {
-                System.out.println((i + 1) + ". " + sandwich.getToppings().get(i).getName());
+                util.printCentered((i + 1) + ". " + sandwich.getToppings().get(i).getName() + "\n", 80);
             }
-            util.printCentered("Sauces: " + sandwich.getSauces(), 80);
-            util.printCentered("Bread: " + sandwich.getBreadType(), 80);
-            util.printCentered("Size: " + sandwich.getSandoSize(), 80);
-            util.printCentered("Toasted: " + (sandwich.isToasted() ? "Yes" : "No"), 80);
+            util.printCentered("Sauces:" + sandwich.getSauces() + "\n", 80);
+            util.printCentered("Bread: " + sandwich.getBreadType() + "\n", 80);
+            util.printCentered("Size: " + sandwich.getSandoSize() + "\n", 80);
+            util.printCentered("Toasted: " + (sandwich.isToasted() ? "Yes\n" : "No\n"), 80);
 
-            System.out.println("""
+            System.out.print("""
                     ==============================================================================
                         _____                                                           _____\s
                        ( ___ )---------------------------------------------------------( ___ )
@@ -99,15 +99,15 @@ public class SandwichCustomization {
                        (_____)---------------------------------------------------------(_____)\s
                     ==============================================================================
                                                What Would You Like To Do?
-                                               
+                    
                                                    1 - Add Topping
                                                    2 - Remove Topping
                                                    3 - Add Sauce
                                                    4 - Remove Sauce
                                                    5 - Toggle Toasted
                                                    0 - Finish Customizing
-                                                   
-                                                   Your Choice:""");
+                    
+                                                   Your Choice:\s""");
 
             String choice = input.nextLine();
 
@@ -116,7 +116,15 @@ public class SandwichCustomization {
                     util.printCentered("Enter Topping Name To Add:\s", 80);
                     String toppingName = input.nextLine();
 
-                    sandwich.getToppings().add(new PremiumTopping(toppingName));
+                    sandwich.getToppings().add(new PremiumTopping(toppingName, sandwich.getSandoSize()));
+
+                    if (toppingName.equalsIgnoreCase("Extra Cheese")) {
+                        sandwich.setHasExtraCheese(true);
+                    }
+                    if (toppingName.equalsIgnoreCase("Extra Meat")) {
+                        sandwich.setHasExtraMeat(true);
+                    }
+
                     util.printCentered(toppingName + " Added To Sando.\n", 80);
                 }
                 case "2" -> {
@@ -139,14 +147,14 @@ public class SandwichCustomization {
                     util.printCentered("Enter Sauce Name To Remove:\s", 80);
                     String sauce = input.nextLine();
                     if (sandwich.getSauces().remove(sauce)) {
-                        util.printCentered(sauce + " Removed From Sando!", 80);
+                        util.printCentered(sauce + " Removed From Sando!\n", 80);
                     } else {
-                        System.out.println("Sauce not found.");
+                        System.out.println("Sauce Not Found.\n");
                     }
                 }
                 case "5" -> {
                     sandwich.setToasted(!sandwich.isToasted());
-                    util.printCentered("Toasted Toggled To: " + (sandwich.isToasted() ? "Yes" : "No"), 80);
+                    util.printCentered("Toasted Toggled To: " + (sandwich.isToasted() ? "Yes\n" : "No\n"), 80);
                 }
                 case "0" -> {
                     customizing = false;

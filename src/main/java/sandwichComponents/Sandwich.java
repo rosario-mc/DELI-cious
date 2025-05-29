@@ -110,6 +110,14 @@ public class Sandwich implements CustomizableItem {
         this.hasExtraCheese = hasExtraCheese;
     }
 
+    public boolean hasExtraMeat() {
+        return hasExtraMeat;
+    }
+
+    public boolean hasExtraCheese() {
+        return hasExtraCheese;
+    }
+
     public String getName() {
         return name;
     }
@@ -123,7 +131,7 @@ public class Sandwich implements CustomizableItem {
         };
     }
 
-    private double getExtraMeatPriceBySize(String size) {
+    protected double getExtraMeatPriceBySize(String size) {
         return switch (size) {
             case "4" -> 0.50;
             case "8" -> 1.00;
@@ -132,11 +140,11 @@ public class Sandwich implements CustomizableItem {
         };
     }
 
-    private double getExtraCheesePriceBySize(String size) {
+    protected double getExtraCheesePriceBySize(String size) {
         return switch (size) {
             case "4" -> 0.30;
             case "8" -> 0.60;
-            case "12" -> 1.50;
+            case "12" -> 0.90;
             default -> 0.0;
         };
     }
@@ -163,7 +171,6 @@ public class Sandwich implements CustomizableItem {
 
     @Override
     public void customize() {
-        // Your customization logic here if needed
     }
 
     @Override
@@ -196,14 +203,12 @@ public class Sandwich implements CustomizableItem {
                   - Toppings:
                     %s
                   - Toasted: %s
-                Total Price: $%.2f
                 """.formatted(
                 displayName,
                 breadType,
                 sandoSize,
                 toppingsList.toString().trim(),
-                toasted ? "Yes" : "No",
-                calculatePrice()
+                toasted ? "Yes" : "No"
         );
     }
 }

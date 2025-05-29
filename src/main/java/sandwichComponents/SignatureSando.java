@@ -1,34 +1,26 @@
 package sandwichComponents;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SignatureSando extends Sandwich{
-    private String name;
     private String description;
     private boolean customizable;
     private double fixedPrice;
+    private List<Topping> defaultToppings;
 
     public SignatureSando(String breadType, String sandoSize, boolean toasted, List<Topping> toppings, List<String> sauces, String name, String description, boolean customizable, double fixedPrice) {
-        super(breadType, sandoSize, toasted, toppings, sauces);
-        this.name = name;
+        super(name, breadType, sandoSize, toasted, toppings, sauces);
         this.description = description;
         this.customizable = customizable;
         this.fixedPrice = fixedPrice;
+        this.defaultToppings = new ArrayList<>(getToppings());
     }
 
     public SignatureSando(String name, String description, boolean customizable, double fixedPrice) {
-        this.name = name;
         this.description = description;
         this.customizable = customizable;
         this.fixedPrice = fixedPrice;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getDescription() {
@@ -53,5 +45,26 @@ public class SignatureSando extends Sandwich{
 
     public void setFixedPrice(double fixedPrice) {
         this.fixedPrice = fixedPrice;
+    }
+
+    @Override
+    public double calculatePrice() {
+        double total = fixedPrice;
+
+        for (Topping topping : getToppings()) {
+            if (!defaultToppings.contains(topping)) {
+                total += topping.getPrice();
+            }
+        }
+
+        if (hasExtraCheese()) {
+            total += getExtraCheesePriceBySize(getSandoSize());
+        }
+
+        if (hasExtraMeat()) {
+            total += getExtraMeatPriceBySize(getSandoSize());
+        }
+
+        return total;
     }
 }

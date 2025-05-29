@@ -75,7 +75,7 @@ public class Cheese implements DisplayScreens {
     private void addCheese(String cheeseName) {
         String size = sandwich.getSandoSize();
         double price = getPriceBySize(size);
-        sandwich.addTopping(new PremiumTopping(cheeseName, size, true, price));
+        sandwich.addTopping(new PremiumTopping(cheeseName, size));
         util.printCentered(cheeseName + " Cheese Added To Your Sando!\n", 80);
     }
 
