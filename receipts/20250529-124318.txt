@@ -1,0 +1,32 @@
+Give Us Feedback @ survey.DELI-ciousSandos.com
+Thank You For Your Trusting Us To Make Your Sandos!
+
+DELI-cious Sandos Receipt
+
+Order Name: Rosario
+Order ID: 4DC3E7B0
+Order Date: 05/29/2025 12:42 PM
+
+Drinks:
+  - Fountain Drink ($2.00)
+
+Chips:
+  - Doritos ($1.50)
+
+Sandwiches:
+  - Sando: Build My Own Sando
+      - Bread: Wrap
+      - Size: 12
+      - Toppings:
+        • Bacon ($3.00)
+        • Swiss ($2.25)
+        • Lettuce ($0.00)
+        • Mayo ($0.00)
+        • Pasta Salad ($0.00)
+        • Extra Cheese ($0.90)
+      - Toasted: Yes
+    *Sando Price: $14.65
+
+
+Total Price: $18.15
+

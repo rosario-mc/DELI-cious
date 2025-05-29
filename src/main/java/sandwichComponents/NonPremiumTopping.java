@@ -11,10 +11,6 @@ public class NonPremiumTopping extends Topping{
         super(name, sandoSize, false, 0.00);
     }
 
-    public NonPremiumTopping(String name) {
-        super(name, "", false, 0.0);
-    }
-
     @Override
     public String toString() {
         return name + " ($" + String.format("%.2f", price) + ")";

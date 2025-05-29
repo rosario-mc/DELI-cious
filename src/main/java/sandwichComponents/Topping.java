@@ -1,14 +1,10 @@
 package sandwichComponents;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public abstract class Topping {
     String name;
     String sandoSize;
     boolean premium;
     double price;
-    List<Topping> toppingList = new ArrayList<>();
 
     public Topping(String name, String sandoSize, boolean premium, double price) {
         this.name = name;
@@ -47,13 +43,5 @@ public abstract class Topping {
 
     public void setPrice(double price) {
         this.price = price;
-    }
-
-    public List<Topping> getToppingList() {
-        return toppingList;
-    }
-
-    public void setToppingList(List<Topping> toppingList) {
-        this.toppingList = toppingList;
     }
 }

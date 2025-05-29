@@ -56,16 +56,20 @@ public class Meat implements DisplayScreens {
                     addMeat("Ham");
                     run = false;
                 }
-                case "3", "BACON" -> {
-                    addMeat("Bacon");
+                case "3", "SALAMI" -> {
+                    addMeat("Salami");
                     run = false;
                 }
-                case "4", "CHICKEN" -> {
+                case "4", "ROAST BEEF" -> {
+                    addMeat("Roast Beef");
+                    run = false;
+                }
+                case "5", "CHICKEN" -> {
                     addMeat("Chicken");
                     run = false;
                 }
-                case "5", "ROAST BEEF" -> {
-                    addMeat("Roast Beef");
+                case "6", "BACON" ->{
+                    addMeat("Bacon");
                     run = false;
                 }
                 case "7", "EXTRA" -> {
@@ -73,7 +77,7 @@ public class Meat implements DisplayScreens {
                     run = false;
                 }
                 case "0", "BACK", "DONE" -> run = false;
-                default -> util.printCentered("Invalid option. Please try again.", 80);
+                default -> util.printCentered("Invalid option. Please try again.\n", 80);
             }
         }
     }
