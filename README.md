@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-**DELI-cious** is a point-of-sale (POS) application designed for a customizable sandwich shop. As the business grows, this application replaces the manual, paper-based order process with an automated, object-oriented software solution. The goal is to streamline the order process and eventually prepare the business for online order support.
+**DELI-cious Sandos** is a point-of-sale (POS) application designed for a customizable sandwich shop. As the business grows, this application replaces the manual, paper-based order process with an automated, object-oriented software solution. The goal is to streamline the order process and eventually prepare the business for online order support.
 
 This is a capstone project that demonstrates core object-oriented programming (OOP) principles including class design, interfaces, encapsulation, and inheritance.
 
@@ -31,7 +31,9 @@ This is a capstone project that demonstrates core object-oriented programming (O
 
 Here is a quick demo of how the app works:
 
-![DELI-cious Demo](assets/demo.gif)
+![Screen Recording 2025-05-29 142410 (1)](https://github.com/user-attachments/assets/c0d6d783-0c36-4ca1-96f0-15d03c7e2b18)
+
+
 
 ---
 
@@ -56,7 +58,8 @@ Here is a screenshot of the Mermaid Class Diagram:
 <details>
   <summary>📊 Click to expand Mermaid Class Diagram (Link found at bottom of diagram)</summary>
 
-![Mermaid Class Diagram](assets/mermaidChart.png)
+![mermaidChart](https://github.com/user-attachments/assets/cfe13292-5781-4e26-b4a5-7d0ea73e4e45)
+
 
 https://www.mermaidchart.com/raw/4704ec49-9312-4945-9fb2-53a760bd991b?theme=dark&version=v0.1&format=svg
 
