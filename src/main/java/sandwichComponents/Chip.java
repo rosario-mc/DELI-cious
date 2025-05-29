@@ -1,13 +1,8 @@
 package sandwichComponents;
 
-public class Chip implements CustomizableItem{
+public class Chip implements CustomizableItem {
     private String name;
     private double price;
-
-    public Chip(String name, double price) {
-        this.name = name;
-        this.price = price;
-    }
 
     public Chip(String name) {
         this.name = name;
@@ -36,12 +31,7 @@ public class Chip implements CustomizableItem{
 
     @Override
     public String toString() {
-        return name + " ($" + String.format("%.2f", price) + ")";
-    }
-
-    @Override
-    public void customize() {
-
+        return name;
     }
 
     @Override

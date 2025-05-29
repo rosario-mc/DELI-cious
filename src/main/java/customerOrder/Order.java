@@ -17,6 +17,7 @@ public class Order {
     private List<Drink> drinks;
     private List<Chip> chips;
     private double totalPrice;
+    private boolean isCanceled;
 
     public Order(String orderName, String orderID, String orderDate, List<Sandwich> sandwiches, List<Drink> drinks, List<Chip> chips) {
         this.orderName = orderName;
@@ -34,6 +35,14 @@ public class Order {
         this.sandwiches = new ArrayList<>();
         this.drinks = new ArrayList<>();
         this.chips = new ArrayList<>();
+    }
+
+    public boolean isCanceled() {
+        return isCanceled;
+    }
+
+    public void setCanceled(boolean canceled) {
+        this.isCanceled = canceled;
     }
 
     public String getOrderName() {

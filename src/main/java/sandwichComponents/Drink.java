@@ -51,17 +51,12 @@ public class Drink implements CustomizableItem {
 
 
     @Override
-    public void customize() {
-
-    }
-
-    @Override
     public double calculatePrice() {
         return getPriceBySize(size);
     }
 
     @Override
     public String toString() {
-        return name + " ($" + String.format("%.2f", price) + ")";
+        return name;
     }
 }

@@ -17,12 +17,6 @@ public class SignatureSando extends Sandwich{
         this.defaultToppings = new ArrayList<>(getToppings());
     }
 
-    public SignatureSando(String name, String description, boolean customizable, double fixedPrice) {
-        this.description = description;
-        this.customizable = customizable;
-        this.fixedPrice = fixedPrice;
-    }
-
     public String getDescription() {
         return description;
     }

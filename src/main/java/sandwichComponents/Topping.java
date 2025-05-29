@@ -17,9 +17,6 @@ public abstract class Topping {
         this.price = price;
     }
 
-    public Topping() {
-    }
-
     public String getName() {
         return name;
     }

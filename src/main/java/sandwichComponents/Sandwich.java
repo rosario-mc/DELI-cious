@@ -169,9 +169,6 @@ public class Sandwich implements CustomizableItem {
         return total;
     }
 
-    @Override
-    public void customize() {
-    }
 
     @Override
     public String toString() {

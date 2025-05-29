@@ -11,9 +11,14 @@ import java.util.List;
 
 public class ReceiptGenerator {
 
-    public String generateReceipt(Order order) {
+    public String generateReceipt(Order order, boolean isCanceled) {
         System.out.println("==============================================================================");
         StringBuilder sb = new StringBuilder();
+
+        if (isCanceled) {
+            sb.append("***** ORDER CANCEL VOID TICKET *****\n\n");
+        }
+
         sb.append("Give Us Feedback @ survey.DELI-ciousSandos.com\n");
         sb.append("Thank You For Your Trusting Us To Make Your Sandos!\n\n");
         sb.append("DELI-cious Sandos Receipt\n\n");
@@ -31,11 +36,15 @@ public class ReceiptGenerator {
 
         sb.append("\nTotal Price: $").append(String.format("%.2f", total)).append("\n");
 
+        if (isCanceled) {
+            sb.append("\n***** ORDER CANCEL VOID TICKET *****\n");
+        }
+
         return sb.toString();
     }
 
-    public void printReceipt(Order order) {
-        System.out.println(generateReceipt(order));
+    public void printReceipt(Order order, boolean isCanceled) {
+        System.out.println(generateReceipt(order, isCanceled));
     }
 
     public void saveReceiptToFile(String receiptText) {
@@ -59,8 +68,23 @@ public class ReceiptGenerator {
         sb.append(label).append(":\n");
         double subtotal = 0.0;
         for (T item : items) {
-            sb.append("  - ").append(item.toString()).append("\n");
-            subtotal += item.calculatePrice();
+            double itemPrice = item.calculatePrice();
+            if (label.equals("Sandwiches")) {
+
+                String[] lines = item.toString().split("\n");
+                if (lines.length > 0) {
+                    sb.append("  - ").append(lines[0]).append("\n");
+                    for (int i = 1; i < lines.length; i++) {
+                        sb.append("    ").append(lines[i]).append("\n");
+                    }
+                }
+                sb.append("    *Sando Price: $").append(String.format("%.2f", itemPrice)).append("\n\n");
+            } else {
+
+                sb.append("  - ").append(item.toString())
+                        .append(" ($").append(String.format("%.2f", itemPrice)).append(")\n\n");
+            }
+            subtotal += itemPrice;
         }
         return subtotal;
     }

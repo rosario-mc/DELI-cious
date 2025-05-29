@@ -46,14 +46,14 @@ public class Checkout implements DisplayScreens {
             String choice = input.nextLine().toUpperCase();
             switch (choice) {
                 case "1", "CONFIRM" -> {
-                    String receiptText = generator.generateReceipt(order);
-                    generator.printReceipt(order);
-                    generator.saveReceiptToFile(receiptText);
+                    String receiptText = generator.generateReceipt(order, false);
+                    generator.printReceipt(order, false);
 
                     System.out.print("Is Your Order Correct? (Y/N): ");
                     String confirm = input.nextLine().trim().toUpperCase();
 
                     if (confirm.equals("Y")) {
+                        generator.saveReceiptToFile(receiptText);
                         System.out.println(
                                 "==============================================================================\n" +
                                         "                      :*#%%%@@@%%%%%%%%%%%%%@@%%%%*=                     \\n\" +\n" +
@@ -104,6 +104,10 @@ public class Checkout implements DisplayScreens {
                     }
                 }
                 case "2", "CANCEL" -> {
+                    String receiptText = generator.generateReceipt(order, true);
+                    generator.printReceipt(order, true);
+                    generator.saveReceiptToFile(receiptText);
+
                     System.out.println("   \n" +
                             "                 :%@@@@@@@@@@@=           =@@@@@@@@@@@@:                 \n" +
                             "              =@@@@@%*++++*%@@@%@@@: :@@@%@@@%#++++*%@@@@@=              \n" +

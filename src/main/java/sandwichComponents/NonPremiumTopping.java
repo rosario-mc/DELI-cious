@@ -4,11 +4,6 @@ public class NonPremiumTopping extends Topping{
 
     private String type;
 
-    public NonPremiumTopping(String name, String sandoSize, boolean premium, double price, String type) {
-        super(name, sandoSize, premium, price);
-        this.type = type;
-    }
-
     public NonPremiumTopping(String name, String sandoSize, boolean premium, double price) {
         super(name, sandoSize, premium, price);
     }

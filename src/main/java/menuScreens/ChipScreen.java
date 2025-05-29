@@ -5,7 +5,6 @@ import menuScreens.customization.Utils;
 import sandwichComponents.Chip;
 
 import java.util.Scanner;
-import java.util.List;
 
 public class ChipScreen implements DisplayScreens {
     static Scanner input = new Scanner(System.in);

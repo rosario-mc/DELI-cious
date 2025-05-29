@@ -4,7 +4,6 @@ import customerOrder.Order;
 import menuScreens.customization.Utils;
 import sandwichComponents.Drink;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class DrinkScreen implements DisplayScreens {
